@@ -1,0 +1,142 @@
+body {
+    
+    background-color: #0d0d0d;
+    font-family: 'Times New Roman', Times, serif;
+    max-width: 1280px;
+}
+
+#siteheader {
+   position: static;
+   border: 0px solid #dcdcdc;
+   border-bottom-width: 1px;
+}
+
+.h-container {
+    max-width: 1440px;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    padding: 0px 30px 0px 30px;
+}
+
+#siteheader .mainpaigelink {
+    display: block;
+    overflow:hidden;
+    position: relative;
+    height: 65px;
+}
+
+#siteheader .mainpaigelink .c-icon {
+    display: flex;
+    margin-top: 23px;
+    width: 150px;
+    
+}
+.conor-buttons {
+    display: flex;
+    margin-left: auto;
+    align-items: center;
+    justify-content: flex-end;   
+}
+.conor-buttons button {
+    font-family: 'Times New Roman', Times, serif;
+    border: 0.5px solid #dcdcdc;
+    border-radius: 5px;
+    font-size: 17px;
+    padding: 5px 25px 5px 25px;
+    box-shadow: 0px 3px 2px rgba(255, 255, 255, 0.162);
+}
+.conor-buttons button:hover {
+    transform: 0.3s;
+    transform: scale(0.97);
+    box-shadow: none;
+}
+.btn-sign {
+    background-color: #ededed;
+    margin-right: 10px;
+}
+.btn-log {
+    color: #ededed;
+    background-color: #0d0d0d;
+    margin-right: 10px;
+}
+
+.div_centre {
+    position: relative;
+    margin: 0px auto;
+    max-height: 700px;
+}
+.leftside img {
+    margin: 0px 0px 0px 30px;
+    display: inline-flex;
+    height: 70px;
+}
+
+.btnone {
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    font-size: 20px;
+    padding: 10px 30px 10px 30px;
+    display: flex;
+    float: right;
+    margin: 10px 30px 0px 0px;
+    /* border: 1px solid #dcdcdc; */
+    background-color: #dcdcdc;
+    color: rgb(4, 4, 4);
+    
+
+}
+
+.mainimg img {
+    width: 425px;
+    height: 600px;
+    margin: 50px 0px 0px 100px;
+    text-shadow: 0px 0px 7px #dcdcdc;
+}
+
+.rightcentre {
+    max-width: 550px;
+    display: block;
+    position: relative;
+    bottom: 600px;
+    left: 700px;
+   
+}
+
+.headname {
+    color: #dcdcdc;
+
+}
+h1 {
+    font-size: 65px ;
+    margin: 50px 15px 0px 0px;
+}
+h2 {
+    font-size: 30px ;
+    margin: 0px 15px 15px 1px;
+}
+
+
+p {
+    margin: 50px 15px 15px 0px;
+    color: #dcdcdc;
+    overflow: scroll;
+    border: 1px solid rgba(0, 0, 0, 0);
+    display: block;
+    width: 400px;
+    height: 100px;
+}
+
+.in {
+    color: #dcdcdc;
+    margin-top: 40px;
+}
+
+.inpu {
+    width: 300px;
+    font-size: 16px;
+    padding: 10px 10px 10px 15px;
+    margin-top: 20px;
+    border: 1px solid black;
+    border-radius: 50px;
+}
