@@ -10,13 +10,13 @@ body {
 
 }
 
-#siteheader {
+#siteHeader {
    position: static;
    border: 0px solid #dcdcdc;
    border-bottom-width: 1px;
 }
 
-.h-container {
+.hContainer {
     max-width: 1440px;
     height: 65px;
     display: flex;
@@ -24,65 +24,65 @@ body {
     padding: 0px 30px 0px 30px;
 }
 
-#siteheader .mainpaigelink {
+#siteHeader .mainpaigeLink {
     display: block;
     overflow:hidden;
     position: relative;
     height: 65px;
 }
 
-#siteheader .mainpaigelink .c-icon {
+#siteHeader .mainPaigeLink .cIcon {
     display: flex;
     margin-top: 23px;
     width: 150px;
     
 }
-.conor-buttons {
+.conorButtons {
     display: flex;
     margin-left: auto;
     align-items: center;
     justify-content: flex-end;   
 }
-.conor-buttons button {
+.conorButtons button {
     border: 0.5px solid #dcdcdc;
     border-radius: 5px;
     font-size: 17px;
     padding: 5px 25px 5px 25px;
     box-shadow: 0px 3px 2px rgba(255, 255, 255, 0.108);
 }
-.conor-buttons button:hover {
+.conorButtons button:hover {
     transform: 0.3s;
     transform: scale(0.97);
     box-shadow: none;
 }
-.btn-sign {
+.btnSign {
     background-color: #ededed;
     margin-right: 10px;
 }
-.btn-log {
+.btnLog {
     color: #ededed;
     background-color: #0d0d0d;
     margin-right: 10px;
 }
 /* ---------------------------------------CENTRE---------------------------------- */
-.div_centre {
+.divCentre {
     display: block;
     position: relative;
 }
 
-.mainimg {
+.mainImg {
     display: inline-block;
     height: 650px;
     margin: 30px 0px 0px 130px;
 }
-.mainimg img {
+.mainImg img {
     margin-left: auto;
     margin-right: auto;
     width: 450px;
     overflow: hidden;
 }
 
-.rightcentre {
+.rightCentre {
     display: inline-block;
     width: 600px;
     position: relative;
@@ -91,7 +91,7 @@ body {
 }
 
 
-.rightcentre .headname {
+.rightCentre .headName {
     margin: 0px 0px 50px 0px;
     color: #dcdcdc;
 
@@ -129,4 +129,74 @@ p {
     margin-top: 20px;
     border: 1px solid black;
     border-radius: 50px;
+}
+
+/* -----------------------MODAL BOX----------------- */
+
+.modal {
+    /* display: none; */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.2);
+    z-index: 1000;
+}
+
+.modalWindow {
+    max-width: 400px;
+    margin: 50px auto;
+    z-index: 1001;
+    border: 0px solid black;
+    border-radius: 4px;
+    box-shadow: 0px 2px 40px rgba(0, 0, 0, 0.377);
+}
+
+.modalContent {
+    position: relative;
+    width: 100%;
+    padding: 35px;
+    background-color: #0d0d0d;
+    border: 0px solid #dcdcdc00;
+    border-radius: 4px;
+    max-height: 255px;
+    overflow-y: auto;
+}
+
+
+.modalClose {
+    color: #dcdcdc;
+    position: absolute;
+    top: 10px;
+    left: 370px;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.modalTitle {
+    text-align: center;
+    font-size: 24px;
+    color: #dcdcdc;
+    text-transform: uppercase;
+}
+.register {
+    font-size: 15px;
+    text-transform: none;
+}
+
+.modalInp {
+    display: block;
+    margin: 15px auto 15px auto;
+}
+
+.modalBtn {
+    display: block;
+    background-color: #0d0d0d;
+    color: #dcdcdc;
+    font-size: 20px;
+    border: 0.5px solid #dcdcdc;
+    border-radius: 5px;
+    margin: 10px auto;
+    padding: 10px 100px;
 }
