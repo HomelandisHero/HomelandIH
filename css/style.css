@@ -1,8 +1,13 @@
-body {
-    
-    background-color: #0d0d0d;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
     font-family: 'Times New Roman', Times, serif;
-    max-width: 1280px;
+}
+
+body {
+    background-color: #0d0d0d;
+
 }
 
 #siteheader {
@@ -39,12 +44,11 @@ body {
     justify-content: flex-end;   
 }
 .conor-buttons button {
-    font-family: 'Times New Roman', Times, serif;
     border: 0.5px solid #dcdcdc;
     border-radius: 5px;
     font-size: 17px;
     padding: 5px 25px 5px 25px;
-    box-shadow: 0px 3px 2px rgba(255, 255, 255, 0.162);
+    box-shadow: 0px 3px 2px rgba(255, 255, 255, 0.108);
 }
 .conor-buttons button:hover {
     transform: 0.3s;
@@ -60,76 +64,62 @@ body {
     background-color: #0d0d0d;
     margin-right: 10px;
 }
-
+/* ---------------------------------------CENTRE---------------------------------- */
 .div_centre {
+    display: block;
     position: relative;
-    margin: 0px auto;
-    max-height: 700px;
-}
-.leftside img {
-    margin: 0px 0px 0px 30px;
-    display: inline-flex;
-    height: 70px;
 }
 
-.btnone {
-    font-family: 'Times New Roman', Times, serif;
-    text-align: center;
-    font-size: 20px;
-    padding: 10px 30px 10px 30px;
-    display: flex;
-    float: right;
-    margin: 10px 30px 0px 0px;
-    /* border: 1px solid #dcdcdc; */
-    background-color: #dcdcdc;
-    color: rgb(4, 4, 4);
-    
-
+.mainimg {
+    display: inline-block;
+    height: 650px;
+    margin: 30px 0px 0px 130px;
 }
-
 .mainimg img {
-    width: 425px;
-    height: 600px;
-    margin: 50px 0px 0px 100px;
-    text-shadow: 0px 0px 7px #dcdcdc;
+    margin-left: auto;
+    margin-right: auto;
+    width: 450px;
+    overflow: hidden;
 }
 
 .rightcentre {
-    max-width: 550px;
-    display: block;
+    display: inline-block;
+    width: 600px;
     position: relative;
-    bottom: 600px;
-    left: 700px;
-   
+    bottom: 85px;
+    left: 70px;
 }
 
-.headname {
+
+.rightcentre .headname {
+    margin: 0px 0px 50px 0px;
     color: #dcdcdc;
 
 }
 h1 {
     font-size: 65px ;
-    margin: 50px 15px 0px 0px;
+    margin: 0px 0px 0px 0px;
 }
 h2 {
     font-size: 30px ;
-    margin: 0px 15px 15px 1px;
+    margin: 0px 0px 0px 0px;
 }
 
 
 p {
-    margin: 50px 15px 15px 0px;
+    margin: 0px 0px 0px 0px;
     color: #dcdcdc;
     overflow: scroll;
     border: 1px solid rgba(0, 0, 0, 0);
     display: block;
-    width: 400px;
-    height: 100px;
+    width: 500px;
+    height: 150px;
 }
 
 .in {
     color: #dcdcdc;
     margin-top: 40px;
+
 }
 
 .inpu {
