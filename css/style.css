@@ -142,6 +142,7 @@ p {
 }
 
 .modalWindow {
+    display: none;
     max-width: 400px;
     margin: 50px auto;
     z-index: 1001;
@@ -226,4 +227,92 @@ p {
 }
 .hide{
     display: none;
+}
+
+/* -----------------------------Modal Sign----------------- */
+
+.modalWindowSgn {
+    max-width: 400px;
+    margin: 50px auto;
+    z-index: 1001;
+    border: 0px solid black;
+    border-radius: 4px;
+    box-shadow: 0px 2px 40px rgba(0, 0, 0, 0.377);
+}
+
+.modalContentSgn {
+    position: relative;
+    width: 100%;
+    padding: 35px;
+    background-color: #dcdcdc;
+    border: 0px solid #dcdcdc00;
+    border-radius: 4px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+
+.modalCloseSgn {
+    color: #dcdcdc;
+    position: absolute;
+    top: 10px;
+    left: 370px;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    opacity: 0.9;
+}
+
+.modalTitleSgn {
+    text-align: center;
+    font-size: 24px;
+    color: #0d0d0d;
+    text-transform: uppercase;
+}
+
+.modalInpOneSgn {
+    display: block;
+    margin: 25px auto 5px auto;
+}
+.modalInpOneSgn:hover {
+    box-shadow: 0px 0px 5px rgba(13, 13, 13, 0.4);
+}
+
+.modalInpTwoSgn {
+    display: block;
+    margin: 10px auto 15px auto;
+}
+.modalInpTwoSgn:hover {
+    box-shadow: 0px 0px 5px rgba(13, 13, 13, 0.4);
+}
+
+.modalBtnSgn {
+    display: block;
+    background-color: #0d0d0d;
+    color: #dcdcdc;
+    font-size: 20px;
+    width: 300px;
+    border: 0.5px solid #dcdcdc;
+    border-radius: 50px;
+    box-shadow: 0px 0px 5px hsla(0, 0%, 86%, 0.3);
+    margin: 10px auto;
+    padding: 8px 10px;
+}
+.modalBtnSgn:hover {
+    transform: scale(0.98);
+    transition-duration: 0.15s;
+    box-shadow: none;
+}
+
+.toLogInSgn{
+    display: block;
+    font-size: 15px;
+    text-transform: none;
+    margin: 20px 15px 0px 15px;
+
+}
+
+.toLogInSgn a{
+    color: #0d0d0d;
+    margin-right: 4px;
 }
