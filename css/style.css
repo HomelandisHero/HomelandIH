@@ -12,8 +12,8 @@ body {
 
 #siteHeader {
    position: static;
-   border: 0px solid #dcdcdc;
-   border-bottom-width: 1px;
+   border: 0px solid #dcdcdc72;
+   border-bottom-width: 0.5px;
 }
 
 .hContainer {
@@ -26,14 +26,11 @@ body {
 
 #siteHeader .mainpaigeLink {
     display: block;
-    overflow:hidden;
-    position: relative;
-    height: 65px;
+    width: 150px;
+    align-items: center;
 }
 
-#siteHeader .mainPaigeLink .cIcon {
-    display: flex;
-    margin-top: 23px;
+.cIcon {
     width: 150px;
     
 }
@@ -51,7 +48,7 @@ body {
     box-shadow: 0px 3px 2px rgba(255, 255, 255, 0.108);
 }
 .conorButtons button:hover {
-    transform: 0.3s;
+    transition-duration: 0.15s;
     transform: scale(0.97);
     box-shadow: none;
 }
@@ -73,7 +70,7 @@ body {
 .mainImg {
     display: inline-block;
     height: 650px;
-    margin: 30px 0px 0px 130px;
+    margin: 30px 0px 0px 120px;
 }
 .mainImg img {
     margin-left: auto;
@@ -87,7 +84,7 @@ body {
     width: 600px;
     position: relative;
     bottom: 85px;
-    left: 70px;
+    left: 80px;
 }
 
 
@@ -134,7 +131,7 @@ p {
 /* -----------------------MODAL BOX----------------- */
 
 .modal {
-    /* display: none; */
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
@@ -160,7 +157,7 @@ p {
     background-color: #0d0d0d;
     border: 0px solid #dcdcdc00;
     border-radius: 4px;
-    max-height: 255px;
+    max-height: 400px;
     overflow-y: auto;
 }
 
@@ -172,6 +169,8 @@ p {
     left: 370px;
     font-size: 20px;
     font-weight: 500;
+    cursor: pointer;
+    opacity: 0.9;
 }
 
 .modalTitle {
@@ -180,14 +179,15 @@ p {
     color: #dcdcdc;
     text-transform: uppercase;
 }
-.register {
-    font-size: 15px;
-    text-transform: none;
+
+.modalInpOne {
+    display: block;
+    margin: 25px auto 5px auto;
 }
 
-.modalInp {
+.modalInpTwo {
     display: block;
-    margin: 15px auto 15px auto;
+    margin: 10px auto 15px auto;
 }
 
 .modalBtn {
@@ -195,8 +195,35 @@ p {
     background-color: #0d0d0d;
     color: #dcdcdc;
     font-size: 20px;
+    width: 300px;
     border: 0.5px solid #dcdcdc;
-    border-radius: 5px;
+    border-radius: 50px;
+    box-shadow: 0px 0px 5px hsla(0, 0%, 86%, 0.3);
     margin: 10px auto;
-    padding: 10px 100px;
+    padding: 8px 10px;
+}
+.modalBtn:hover {
+    transform: scale(0.98);
+    transition-duration: 0.15s;
+    box-shadow: none;
+}
+
+.register {
+    display: block;
+    font-size: 15px;
+    text-transform: none;
+    margin: 20px 15px 0px 15px;
+
+}
+
+.register a{
+    color: #eeeeee;
+    margin-right: 4px;
+}
+
+.show{
+    display: block;
+}
+.hide{
+    display: none;
 }

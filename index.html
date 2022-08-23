@@ -13,13 +13,15 @@
 
             <div class="hContainer">
 
-                <a class="mainPaigeLink" href="/index.html">
-                    <img src="img/logo.PNG" class="cIcon" alt="homeland">
-                </a> 
+                <div class="mainpaigeLink">
+                    <a href="/index.html">
+                        <img src="img/logo.PNG" class="cIcon" alt="homeland">
+                    </a> 
+                </div>
     
                 <div class="conorButtons">
-                    <button type="submit" class="btnSign">Sign up</button>
-                    <button type="submit" class="btnLog">Log in</button>
+                    <button class="btnSign">Sign up</button>
+                    <button data-modal class="btnLog">Log in</button>
                 </div>
 
             </div>
@@ -55,12 +57,12 @@
 
                 <div class="modalContent">
                     <form action="#">
-                        <div class="modalClose">x</div>
+                        <div data-close class="modalClose">x</div>
                         <div class="modalTitle">Log in</div>
-                        <input required placeholder="Your email" type="text" name="email" class="inpu modalInp">
-                        <input required placeholder="Password" type="password" name="password" class="inpu modalInp">
+                        <input required placeholder="Your email" type="text" name="email" class="inpu modalInpOne">
+                        <input required placeholder="Password" type="password" name="password" class="inpu modalInpTwo">
                         <button class="conorButtons modalBtn">log in</button>
-                        <div class="modalTitle register"><a href="#">Register</a>(if you haven't already)</div>
+                        <div class="modalTitle register"><a href="">Register</a>(if you haven't already)</div>
                     </form>
                 </div>
 
@@ -77,5 +79,6 @@
                 <option value="green">green</option>
             </select>
         </div>  -->
+        <script src="/js/script.js"></script>
     </body>
 </html>
