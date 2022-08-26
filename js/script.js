@@ -1,25 +1,49 @@
 'use strict';
 //---------------Modal window -------------
 
-document.addEventListener('DOMContentLoaded', () =>{
+document.addEventListener('DOMContentLoaded', () => {
 
     const modalTrigger = document.querySelectorAll('[data-modal]'),
-      modal = document.querySelector('.modal'),
-      modalCloseBtn = document.querySelector('[data-close]');
+          modalTriggerSgn = document.querySelectorAll('[data-modalSng]'),      
+          modal = document.querySelector('.modal'),
+          modalCloseBtn = document.querySelectorAll('[data-close]'),
+          modalWindow = document.querySelector('.modalWindow'),
+          modalWindowSgn = document.querySelector('.modalWindowSgn');
+
+
     
     modalTrigger.forEach(btn => {
         btn.addEventListener('click', () =>{
             modal.classList.add('show');
             modal.classList.remove('hide');
+            modalWindowSgn.classList.add('hide');
+            modalWindow.classList.add('show');
+            modalWindow.classList.remove('hide');
             document.body.style.overflow = 'hidden';
         });
     
     });
- 
-    modalCloseBtn.addEventListener('click', () =>{
-        modal.classList.add('hide');
-        modal.classList.remove('show');
-        document.body.style.overflow = '';
+    modalCloseBtn.forEach(btn => {
+        btn.addEventListener('click', () =>{
+            modal.classList.add('hide');
+            modal.classList.remove('show');
+            modalWindow.classList.add('show');
+            modalWindow.classList.remove('hide');
+            modalWindowSgn.classList.add('show');
+            modalWindowSgn.classList.remove('hide');
+            document.body.style.overflow = '';
+        });
+    });
+    
+    modalTriggerSgn.forEach(btn => {
+        btn.addEventListener('click', () =>{
+            modal.classList.add('show');
+            modal.classList.remove('hide');
+            modalWindow.classList.add('hide');
+            modalWindowSgn.classList.add('show');
+            modalWindowSgn.classList.remove('hide');
+            document.body.style.overflow = 'hidden';
+        });
     });
 
     modal.addEventListener('click', (e) => {
@@ -29,6 +53,4 @@ document.addEventListener('DOMContentLoaded', () =>{
             document.body.style.overflow = '';
         }
     });
-}); 
-
-
+});

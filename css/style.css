@@ -96,10 +96,12 @@ body {
 h1 {
     font-size: 85px ;
     margin: 0px 0px 0px 0px;
+    text-shadow: 4px 5px 10px rgba(0, 0, 0, 0.3);
 }
 h2 {
     font-size: 30px ;
     margin: 0px 0px 0px 0px;
+    text-shadow: 4px 5px 10px rgba(0, 0, 0, 0.3);
 }
 
 .textP {
@@ -134,17 +136,10 @@ p {
 
 }
 
-.in {
-    color: #fffef3;
-    margin-top: 40px;
-
-}
-
 .inpu {
     width: 300px;
     font-size: 16px;
     padding: 10px 10px 10px 15px;
-    margin-top: 20px;
     border: 1px solid black;
     border-radius: 50px;
 }
@@ -188,12 +183,15 @@ p {
     position: absolute;
     top: 10px;
     left: 370px;
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 500;
     cursor: pointer;
     opacity: 0.9;
 }
-
+.modalClose:hover {
+    transition-duration: 0.2s;
+    transform: scale(1.2);
+}
 .modalTitle {
     text-align: center;
     font-size: 24px;
@@ -277,10 +275,14 @@ p {
     position: absolute;
     top: 10px;
     left: 370px;
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 500;
     cursor: pointer;
     opacity: 0.9;
+}
+.modalCloseSgn:hover {
+    transition-duration: 0.2s;
+    transform: scale(1.2);
 }
 
 .modalTitleSgn {
@@ -290,20 +292,20 @@ p {
     text-transform: uppercase;
 }
 
+.modalInpHover:hover {
+    box-shadow: 0px 0px 5px rgba(13, 13, 13, 0.4);
+}
 .modalInpOneSgn {
     display: block;
     margin: 25px auto 5px auto;
 }
-.modalInpOneSgn:hover {
-    box-shadow: 0px 0px 5px rgba(13, 13, 13, 0.4);
-}
-
 .modalInpTwoSgn {
     display: block;
-    margin: 10px auto 15px auto;
+    margin: 15px auto 15px auto;
 }
-.modalInpTwoSgn:hover {
-    box-shadow: 0px 0px 5px rgba(13, 13, 13, 0.4);
+.modalInpThreeSgn {
+    display: block;
+    margin: 15px auto 15px auto;
 }
 
 .modalBtnSgn {
