@@ -42,7 +42,7 @@ body {
     justify-content: flex-end;   
 }
 .conorButtons button {
-    border: 0.5px solid #171717;
+    border: 1px solid #171717;
     border-radius: 7px;
     font-size: 17px;
     padding: 5px 25px 5px 25px;
@@ -140,7 +140,7 @@ p {
     width: 300px;
     font-size: 16px;
     padding: 10px 10px 10px 15px;
-    border: 1px solid black;
+    border: 1.5px solid black;
     border-radius: 50px;
 }
 
@@ -173,7 +173,7 @@ p {
     background-color: #171717;
     border: 0px solid #fffef300;
     border-radius: 4px;
-    max-height: 400px;
+    max-height: 80vh;
     overflow-y: auto;
 }
 
@@ -206,7 +206,7 @@ p {
 
 .modalInpTwo {
     display: block;
-    margin: 10px auto 15px auto;
+    margin: 15px auto 15px auto;
 }
 
 .modalBtn {
@@ -263,9 +263,9 @@ p {
     width: 100%;
     padding: 35px;
     background-color: #fffef3;
-    border: 0px solid #fffef300;
+    border: 0px solid #171717;
     border-radius: 4px;
-    max-height: 400px;
+    max-height: 80vh;
     overflow-y: auto;
 }
 
