@@ -18,35 +18,106 @@ body {
 }
 
 .hContainer {
-    max-width: 1440px;
-    height: 65px;
+    height: auto;
     display: flex;
     align-items: center;
     padding: 0px 30px 0px 30px;
 }
-
-.mainpaigeLink {
-    display: block;
-    padding-top: 5px;
-    align-items: center;
+.mainPaigeLink {
+    margin: 25px 0px 21px 0px;
 }
-
 .cIcon {
     width: 150px;
+    height: 18px;
+}
+
+.headCentre {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+    width: 100%;
+}
+.headCentreLinks {
+    margin-right: 25px;
+}
+.headCentreLinks a {
+    font-size: 17px;
+    color: #171717;
+    text-decoration: none;
+}
+.btnCntct {
+    margin-left: 30px;
+}
+.headSearch {
+    position: relative;
+}
+.inpSearch {
+    padding: 5px 30px 5px 15px;
+    font-size: 17px;
+    border: 1px solid #171717;
+    border-radius: 7px;
     
 }
+
+.imgSearch img {
+    position: absolute;
+    top: 26%;
+    left: 90%;
+    width: 15px;
+    
+}
+
+.centreButtons {
+    display: flex;
+    padding-top: 3px;
+    margin: 0px 25px 0px 25px;
+}
+
+.btnHead {
+    display: inline-block;
+    background-color: #fffef3;
+    border: none;
+    /* margin: 0px 25px 0px 0px; */
+    cursor: pointer;
+}
+.btnHead:hover {
+    transition-duration: 0.15s;
+    transform: scale(0.9);
+}
+
+.icFav {
+    content: url(/img/icons/heart.png);
+    width: 25px;
+}
+
+.icLgj {
+    content: url(/img/icons/brit2.png);
+    width: 24px;
+    margin: 0px 20px 0px 19px;
+}
+
+.icBsk {
+    content: url(/img/icons/basket.png);
+    width: 25px;
+}
+
+
+
 .conorButtons {
     display: flex;
-    margin-left: auto;
+    padding-left: 25px;
+    box-shadow: -1px 0px 0.001px #171717;
     align-items: center;
     justify-content: flex-end;   
 }
 .conorButtons button {
     border: 1px solid #171717;
+    width: 105px;
     border-radius: 7px;
     font-size: 17px;
     padding: 5px 25px 5px 25px;
-    box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.306);
+    /* box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.2); */
 }
 .conorButtons button:hover {
     transition-duration: 0.15s;
@@ -60,7 +131,6 @@ body {
 .btnLog {
     color: #fffef3;
     background-color: #0d0d0d;
-    margin-right: 10px;
 }
 /* ---------------------------------------CENTRE---------------------------------- */
 .divCentre {
@@ -96,12 +166,12 @@ body {
 h1 {
     font-size: 85px ;
     margin: 0px 0px 0px 0px;
-    text-shadow: 4px 5px 10px rgba(0, 0, 0, 0.3);
+    text-shadow: -4px 5px 10px rgba(0, 0, 0, 0.3);
 }
 h2 {
     font-size: 30px ;
-    margin: 0px 0px 0px 0px;
-    text-shadow: 4px 5px 10px rgba(0, 0, 0, 0.3);
+    padding-left: 4px;
+    text-shadow: -4px 5px 10px rgba(0, 0, 0, 0.3);
 }
 
 .textP {
@@ -124,12 +194,12 @@ p {
     border-radius: 10px;
     font-size: 20px;
     padding: 15px 25px 15px 25px;
-    box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.25);
+    /* box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.25); */
 }
 
 .btnToShop button:hover {
     transition-duration: 0.25s;
-    transform: scale(0.97);
+    /* transform: scale(0.97); */
     box-shadow: none;   
     background-color: #171717;
     color: #fffef3;
@@ -292,7 +362,7 @@ p {
     text-transform: uppercase;
 }
 
-.modalInpHover:hover {
+.shadowOne:hover {
     box-shadow: 0px 0px 5px rgba(13, 13, 13, 0.4);
 }
 .modalInpOneSgn {
