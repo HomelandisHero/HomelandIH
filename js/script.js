@@ -117,6 +117,51 @@ document.addEventListener('DOMContentLoaded', () => {
         27,
         ".shop .container"
     ).render();
+
+    new shopCard (
+        "/img/shop/T-S_1_whiteH.png",
+        "whiteH",
+        "T-shirt №1",
+        "Homeland is hero - beige embroidery",
+        20,
+        ".shop .container"
+    ).render();
+
+    new shopCard (
+        "/img/shop/T-S_2_goldH.png",
+        "goldH",
+        "T-shirt №2",
+        "Homeland is hero - yellow embroidery",
+        27,
+        ".shop .container"
+    ).render();
+
+    new shopCard (
+        "/img/shop/T-S_1_whiteH.png",
+        "whiteH",
+        "T-shirt №1",
+        "Homeland is hero - beige embroidery",
+        20,
+        ".shop .container"
+    ).render();
+    
+    new shopCard (
+        "/img/shop/T-S_3_blueH.png",
+        "blueH",
+        "T-shirt №3",
+        "Homeland is hero - blue embroidery",
+        27,
+        ".shop .container"
+    ).render();
+
+    new shopCard (
+        "/img/shop/T-S_2_goldH.png",
+        "goldH",
+        "T-shirt №2",
+        "Homeland is hero - yellow embroidery",
+        27,
+        ".shop .container"
+    ).render();
 });
 
 
