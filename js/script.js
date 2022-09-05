@@ -81,7 +81,12 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             element.innerHTML = `
-                    <img src = ${this.src} alt = ${this.alt}>
+                    <div class="img-shop"><img src = ${this.src} alt = ${this.alt}></div>
+                    <div class="fav-shop">
+                        <button type="submit" class="btn-fav-shop">
+                            <span class="icon-fav-shop"></span>
+                        </button>
+                    </div>
                     <h3 class = "shop_title">${this.title}</h3>
                     <div class = "shop_descr">${this.descr}</div>
                     <div class="shop_price"><span>${this.price}</span> £</div>
@@ -92,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     new shopCard (
-        "/img/shop/T-S_1_whiteH.png",
+        "img/shop/T-S_1_whiteH.png",
         "whiteH",
         "T-shirt №1",
         "Homeland is hero - beige embroidery",
@@ -163,5 +168,4 @@ document.addEventListener('DOMContentLoaded', () => {
         ".shop .container"
     ).render();
 });
-
 
