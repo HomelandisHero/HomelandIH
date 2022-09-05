@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: #fffef3;
+    background-color: #f4f4f4;
 
 }
 
@@ -76,7 +76,7 @@ body {
 
 .btnHead {
     display: inline-block;
-    background-color: #fffef3;
+    background-color: #f4f4f4;
     border: none;
     /* margin: 0px 25px 0px 0px; */
     cursor: pointer;
@@ -93,7 +93,7 @@ body {
 
 .icLgj {
     content: url(/img/icons/brit3.png);
-    width: 25px;
+    width: 24px;
     margin: 0px 15px 0px 15px;
 }
 
@@ -122,12 +122,12 @@ body {
     box-shadow: 0px 0px 5px rgba(13, 13, 13, 0.4);
 }
 .btnSign {
-    background-color: #fffef3;
+    background-color: #f4f4f4;
     margin-right: 10px;
 }
 
 .btnLog {
-    color: #fffef3;
+    color: #f4f4f4;
     background-color: #0d0d0d;
 }
 
@@ -187,7 +187,7 @@ p {
     margin-top: 30px;
 }
 .btnToShop button {
-    background-color: #fffef3;
+    background-color: #f4f4f4;
     border: 2px solid #171717;
     width: 300px;
     border-radius: 10px;
@@ -201,7 +201,7 @@ p {
     /* transform: scale(0.97); */
     box-shadow: none;   
     background-color: #171717;
-    color: #fffef3;
+    color: #f4f4f4;
 
 }
 
@@ -247,7 +247,7 @@ p {
     width: 100%;
     padding: 35px;
     background-color: #171717;
-    border: 0px solid #fffef300;
+    border: 0px solid #f4f4f400;
     border-radius: 4px;
     max-height: 80vh;
     overflow-y: auto;
@@ -255,7 +255,7 @@ p {
 
 
 .modalClose {
-    color: #fffef3;
+    color: #f4f4f4;
     position: absolute;
     top: 10px;
     left: 370px;
@@ -271,7 +271,7 @@ p {
 .modalTitle {
     text-align: center;
     font-size: 24px;
-    color: #fffef3;
+    color: #f4f4f4;
     text-transform: uppercase;
 }
 
@@ -288,10 +288,10 @@ p {
 .modalBtn {
     display: block;
     background-color: #0d0d0d;
-    color: #fffef3;
+    color: #f4f4f4;
     font-size: 20px;
     width: 300px;
-    border: 0.5px solid #fffef3;
+    border: 0.5px solid #f4f4f4;
     border-radius: 50px;
     box-shadow: 0px 0px 5px hsla(0, 0%, 86%, 0.3);
     margin: 10px auto;
@@ -338,7 +338,7 @@ p {
     position: relative;
     width: 100%;
     padding: 35px;
-    background-color: #fffef3;
+    background-color: #f4f4f4;
     border: 0px solid #171717;
     border-radius: 4px;
     max-height: 80vh;
@@ -387,10 +387,10 @@ p {
 .modalBtnSgn {
     display: block;
     background-color: #0d0d0d;
-    color: #fffef3;
+    color: #f4f4f4;
     font-size: 20px;
     width: 300px;
-    border: 0px solid #fffef3;
+    border: 0px solid #f4f4f4;
     border-radius: 50px;
     box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.4);
     margin: 10px auto;
@@ -424,7 +424,7 @@ p {
 }
 
 .shop h2 {
-    color: #fffef3;
+    color: #f4f4f4;
     text-align: center;
     font-size: 40px;
     text-shadow: none;
@@ -445,6 +445,7 @@ p {
 }   
 
 .shop_item {
+    position: relative;
     width: 300px;
     min-height: 350px;
     font-size: 18px;
@@ -458,13 +459,38 @@ p {
     transform: scale(0.99);
     color: black;
 }
+.img-shop{
+    padding: 15px 0px 0px 0px;
+}
 .shop_item img {
     width: 100%;
+}
 
+.fav-shop {
+    width: 33px;
+    position: absolute;
+    left: 85%;
+    bottom: 90%;
+}
+.btn-fav-shop{
+    border: 0px solid rgba(0, 0, 0, 0.1);
+    background-color: white;
+    border-radius: 70%;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+}
+.icon-fav-shop {
+    content: url(/img/icons/heart.png);
+    width: 100%;
+    padding: 5px 5px 3px 5px;
+    align-items: center;
+    
 }
 
 .shop_title {
-    padding: 20px 0px 5px 5px;
+    padding: 5px 0px 5px 5px;
     font-size: 1;
     font-weight: 200;
 }
