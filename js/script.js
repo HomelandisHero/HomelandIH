@@ -8,7 +8,9 @@ document.addEventListener('DOMContentLoaded', () => {
           modal = document.querySelector('.modal'),
           modalCloseBtn = document.querySelectorAll('[data-close]'),
           modalWindow = document.querySelector('.modalWindow'),
-          modalWindowSgn = document.querySelector('.modalWindowSgn');
+          modalWindowSgn = document.querySelector('.modalWindowSgn'),
+          dropdownTrig = document.querySelectorAll('[data-lgj]'),
+          dropdownContent = document.querySelector('#myDropdown');
 
 
     
@@ -54,6 +56,23 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+
+    //---------- FUNCTION TOGGLE -----------
+
+    const btnToggle = document.getElementById('btn_toggle');
+
+    function toggle(el, classname) {
+        if(el.classList.contains(classname)){
+            el.classList.remove(classname);
+        } else {
+            el.classList.add(classname);
+        }
+    }
+
+    btnToggle.addEventListener('click', () =>{
+        toggle(dropdownContent, 'hide');
+    });
+
     class shopCard {
         constructor (src, alt, title, descr, price, parentSelector, ...classes){
             this.src = src;
@@ -63,12 +82,12 @@ document.addEventListener('DOMContentLoaded', () => {
             this.price = price;
             this.parent = document.querySelector(parentSelector);
             this.classes = classes;
-            this.transfer = 0.86;
+            this.transfer = 0.87;
             this.changeToGBR();
         }
 
         changeToGBR() {
-            this.price = this.price * this.transfer;
+            this.price = (this.price * this.transfer).toFixed(0);
         }
 
         render() {
@@ -106,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ).render();
 
     new shopCard (
-        "/img/shop/T-S_2_goldH.png",
+        "img/shop/T-S_2_goldH.png",
         "goldH",
         "T-shirt №2",
         "Homeland is hero - yellow embroidery",
@@ -115,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ).render();
 
     new shopCard (
-        "/img/shop/T-S_3_blueH.png",
+        "img/shop/T-S_3_blueH.png",
         "blueH",
         "T-shirt №3",
         "Homeland is hero - blue embroidery",
@@ -124,7 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ).render();
 
     new shopCard (
-        "/img/shop/T-S_1_whiteH.png",
+        "img/shop/T-S_1_whiteH.png",
         "whiteH",
         "T-shirt №1",
         "Homeland is hero - beige embroidery",
@@ -133,7 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ).render();
 
     new shopCard (
-        "/img/shop/T-S_2_goldH.png",
+        "img/shop/T-S_2_goldH.png",
         "goldH",
         "T-shirt №2",
         "Homeland is hero - yellow embroidery",
@@ -142,7 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ).render();
 
     new shopCard (
-        "/img/shop/T-S_1_whiteH.png",
+        "img/shop/T-S_1_whiteH.png",
         "whiteH",
         "T-shirt №1",
         "Homeland is hero - beige embroidery",
@@ -151,7 +170,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ).render();
     
     new shopCard (
-        "/img/shop/T-S_3_blueH.png",
+        "img/shop/T-S_3_blueH.png",
         "blueH",
         "T-shirt №3",
         "Homeland is hero - blue embroidery",
@@ -160,12 +179,59 @@ document.addEventListener('DOMContentLoaded', () => {
     ).render();
 
     new shopCard (
-        "/img/shop/T-S_2_goldH.png",
+        "img/shop/T-S_2_goldH.png",
         "goldH",
         "T-shirt №2",
         "Homeland is hero - yellow embroidery",
         27,
         ".shop .container"
     ).render();
+
+    //_------- FORMS-----
+
+    const forms = document.querySelectorAll('form');
+
+    const message = {
+        loading: 'Loading',
+        // success: 'Thank you!',
+        failure: 'Ooops... Try again'
+    };
+
+    forms.forEach(item => {
+        postData(item);
+    });
+
+    function postData(form) {
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const statusMessage = document.createElement('div');
+            statusMessage.classList.add('status');
+            statusMessage.textContent = message.loading;
+            form.append(statusMessage);
+
+            const request = new XMLHttpRequest();
+            request.open('POST', 'server.php');
+
+            // request.setRequestHeader('Content-type', 'multipart/form-data');
+            const formData = new FormData(form);
+
+            request.send(formData);
+
+            request.addEventListener('load', () => {
+                if(request.status === 200) {
+                    console.log(request.response);
+                    statusMessage.textContent = message.success;
+                    form.reset();
+                    setTimeout(() => {
+                        statusMessage.remove();
+                    }, 2000);
+                } else {
+                    statusMessage.textContent = message.failure;
+                }
+            });
+
+        });
+    }
 });
 

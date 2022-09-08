@@ -6,15 +6,16 @@
 }
 
 body {
-    background-color: #f4f4f4;
+    background-color: #fbfbfb;
 
 }
 
 #siteHeader {
-   position: static;
-   border: 0px solid #171717;
-   /* border-bottom-width: 0.5px; */
-   box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.15);
+   background-color: #fbfbfb;
+   /* position: fixed; */
+   z-index: 1000;
+   width: 100%;
+   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
 }
 
 .hContainer {
@@ -55,7 +56,7 @@ body {
 .inpSearch {
     padding: 5px 30px 5px 15px;
     font-size: 17px;
-    border: 1px solid #171717;
+    border: 1.5px solid #171717;
     border-radius: 7px;
     
 }
@@ -76,7 +77,7 @@ body {
 
 .btnHead {
     display: inline-block;
-    background-color: #f4f4f4;
+    background-color: #fbfbfb;
     border: none;
     /* margin: 0px 25px 0px 0px; */
     cursor: pointer;
@@ -87,18 +88,39 @@ body {
 }
 
 .icFav {
-    content: url(/img/icons/heart.png);
+    content: url(/MyPractic/img/icons/heart.png);
     width: 25px;
 }
-
+.icon_language {
+    position: relative;
+    display: inline-block;
+}
 .icLgj {
-    content: url(/img/icons/brit3.png);
+    content: url(/MyPractic/img/icons/brit3.png);
     width: 24px;
     margin: 0px 15px 0px 15px;
 }
+.dropdown-content {
+    position: absolute;
+    background-color: #fbfbfb;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    margin-top: 20px;
+}
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+.dropdown-content a:hover {
+    background-color: #171717;
+    color: #fbfbfb;
+}
 
 .icBsk {
-    content: url(/img/icons/basket.png);
+    content: url(/MyPractic/img/icons/basket.png);
     width: 25px;
 }
 
@@ -110,8 +132,8 @@ body {
     justify-content: flex-end;   
 }
 .conorButtons button {
-    border: 1px solid #171717;
-    width: 105px;
+    border: 1.5px solid #171717;
+    width: 106px;
     border-radius: 7px;
     font-size: 17px;
     padding: 5px 25px 5px 25px;
@@ -122,12 +144,12 @@ body {
     box-shadow: 0px 0px 5px rgba(13, 13, 13, 0.4);
 }
 .btnSign {
-    background-color: #f4f4f4;
+    background-color: #fbfbfb;
     margin-right: 10px;
 }
 
 .btnLog {
-    color: #f4f4f4;
+    color: #fbfbfb;
     background-color: #0d0d0d;
 }
 
@@ -165,12 +187,12 @@ body {
 h1 {
     font-size: 85px ;
     margin: 0px 0px 0px 0px;
-    text-shadow: -4px 5px 10px rgba(0, 0, 0, 0.3);
+    text-shadow: -4px 5px 10px rgba(0, 0, 0, 0.2);
 }
 h2 {
     font-size: 30px ;
     padding-left: 4px;
-    text-shadow: -4px 5px 10px rgba(0, 0, 0, 0.3);
+    text-shadow: -4px 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 .textP {
@@ -187,7 +209,7 @@ p {
     margin-top: 30px;
 }
 .btnToShop button {
-    background-color: #f4f4f4;
+    background-color: #fbfbfb;
     border: 2px solid #171717;
     width: 300px;
     border-radius: 10px;
@@ -201,7 +223,7 @@ p {
     /* transform: scale(0.97); */
     box-shadow: none;   
     background-color: #171717;
-    color: #f4f4f4;
+    color: #fbfbfb;
 
 }
 
@@ -230,13 +252,13 @@ p {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.702);
+    z-index: 1001;
 }
 
 .modalWindow {
     /* display: none; */
     max-width: 400px;
     margin: 50px auto;
-    z-index: 1001;
     border: 0px solid black;
     border-radius: 4px;
     box-shadow: 0px 2px 40px rgba(0, 0, 0, 0.377);
@@ -247,7 +269,7 @@ p {
     width: 100%;
     padding: 35px;
     background-color: #171717;
-    border: 0px solid #f4f4f400;
+    border: 0px solid #fbfbfb00;
     border-radius: 4px;
     max-height: 80vh;
     overflow-y: auto;
@@ -255,7 +277,7 @@ p {
 
 
 .modalClose {
-    color: #f4f4f4;
+    color: #fbfbfb;
     position: absolute;
     top: 10px;
     left: 370px;
@@ -271,7 +293,7 @@ p {
 .modalTitle {
     text-align: center;
     font-size: 24px;
-    color: #f4f4f4;
+    color: #fbfbfb;
     text-transform: uppercase;
 }
 
@@ -288,10 +310,10 @@ p {
 .modalBtn {
     display: block;
     background-color: #0d0d0d;
-    color: #f4f4f4;
+    color: #fbfbfb;
     font-size: 20px;
     width: 300px;
-    border: 0.5px solid #f4f4f4;
+    border: 0.5px solid #fbfbfb;
     border-radius: 50px;
     box-shadow: 0px 0px 5px hsla(0, 0%, 86%, 0.3);
     margin: 10px auto;
@@ -328,7 +350,6 @@ p {
 .modalWindowSgn {
     max-width: 400px;
     margin: 50px auto;
-    z-index: 1001;
     border: 0px solid black;
     border-radius: 4px;
     box-shadow: 0px 2px 40px rgba(0, 0, 0, 0.377);
@@ -338,7 +359,7 @@ p {
     position: relative;
     width: 100%;
     padding: 35px;
-    background-color: #f4f4f4;
+    background-color: #fbfbfb;
     border: 0px solid #171717;
     border-radius: 4px;
     max-height: 80vh;
@@ -387,10 +408,10 @@ p {
 .modalBtnSgn {
     display: block;
     background-color: #0d0d0d;
-    color: #f4f4f4;
+    color: #fbfbfb;
     font-size: 20px;
     width: 300px;
-    border: 0px solid #f4f4f4;
+    border: 0px solid #fbfbfb;
     border-radius: 50px;
     box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.4);
     margin: 10px auto;
@@ -419,12 +440,12 @@ p {
 /* --------------------------SHOP----------------------------- */
 
 .shop {
-    background-color: #232323;
+    background-color: #fbfbfb;
     padding: 25px 0px 40px 0px;
 }
 
 .shop h2 {
-    color: #f4f4f4;
+    color: #232323;
     text-align: center;
     font-size: 40px;
     text-shadow: none;
@@ -434,8 +455,8 @@ p {
     margin: 30px 0px 0px 0px;
     padding: 25px 0px 25px 0px;
     width: 100%;
-    background-color: #171717;
-    box-shadow: 0px 5px 25px rgba(255, 255, 255, 0.2);
+    background-color: #dddddd24;
+    box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.2);
 }
 
 .container {
@@ -446,18 +467,18 @@ p {
 
 .shop_item {
     position: relative;
-    width: 300px;
+    max-width: 300px;
     min-height: 350px;
     font-size: 18px;
     background-color: #fefefe;
-    color: #171717c4;
-    /* text-align: center; */
+    color: #171717ad;
     margin: 5px 5px 5px 5px;
 }
 .shop_item:hover {
     transition-duration: 0.15s;
     transform: scale(0.99);
     color: black;
+    border: 1px solid rgba(0, 0, 0, 0.1);
 }
 .img-shop{
     padding: 15px 0px 0px 0px;
@@ -472,7 +493,7 @@ p {
     left: 85%;
     bottom: 90%;
 }
-.btn-fav-shop{
+.btn-fav-shop {
     border: 0px solid rgba(0, 0, 0, 0.1);
     background-color: white;
     border-radius: 70%;
@@ -481,8 +502,12 @@ p {
     height: auto;
     cursor: pointer;
 }
+.btn-fav-shop:hover {
+    transition-duration: 0.15s;
+    transform: scale(0.93);
+}
 .icon-fav-shop {
-    content: url(/img/icons/heart.png);
+    content: url(/MyPractic/img/icons/heart.png);
     width: 100%;
     padding: 5px 5px 3px 5px;
     align-items: center;
