@@ -1,0 +1,83 @@
+{
+  "goods": [
+    {
+      "img": "img/shop/T-S_1_whiteH.png",
+      "altimg": "whiteH",
+      "title": "T-shirt №1",
+      "descr": "Homeland is hero - beige embroidery",
+      "price": 20
+    },
+    {
+      "img": "img/shop/T-S_2_goldH.png",
+      "altimg": "goldH",
+      "title": "T-shirt №2",
+      "descr": "Homeland is hero - yellow embroidery",
+      "price": 27
+    },
+    {
+      "img": "img/shop/T-S_3_blueH.png",
+      "altimg": "blueH",
+      "title": "T-shirt №3",
+      "descr": "Homeland is hero - blue embroidery",
+      "price": 27
+    },
+    {
+      "img": "img/shop/T-S_1_whiteH.png",
+      "altimg": "whiteH",
+      "title": "T-shirt №1",
+      "descr": "Homeland is hero - beige embroidery",
+      "price": 20
+    },
+    {
+      "img": "img/shop/T-S_2_goldH.png",
+      "altimg": "goldH",
+      "title": "T-shirt №2",
+      "descr": "Homeland is hero - yellow embroidery",
+      "price": 27
+    },
+    {
+      "img": "img/shop/T-S_1_whiteH.png",
+      "altimg": "whiteH",
+      "title": "T-shirt №1",
+      "descr": "Homeland is hero - beige embroidery",
+      "price": 20
+    },
+    {
+      "img": "img/shop/T-S_3_blueH.png",
+      "altimg": "blueH",
+      "title": "T-shirt №3",
+      "descr": "Homeland is hero - blue embroidery",
+      "price": 27
+    },
+    {
+      "img": "img/shop/T-S_2_goldH.png",
+      "altimg": "goldH",
+      "title": "T-shirt №2",
+      "descr": "Homeland is hero - yellow embroidery",
+      "price": 27
+    }
+  ],
+  "requests": [
+    {
+      "id": 1
+    },
+    {
+      "id": 2
+    },
+    {
+      "id": 3
+    },
+    {
+      "email": "ssss@gmail.com",
+      "password": "121231231",
+      "id": 4
+    },
+    {
+      "email": "eeeeee@email.com",
+      "password": "333224e44433aaa",
+      "resPassword": "fasfadsfasdAD",
+      "tel": "123123123123",
+      "id": 5
+    }
+  ]
+}
