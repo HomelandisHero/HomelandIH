@@ -13,7 +13,18 @@ document.addEventListener('DOMContentLoaded', () => {
           dropdownContent = document.querySelector('#myDropdown');
 
 
-    
+    function openModal() {
+        modal.classList.add('show');
+        modal.classList.remove('hide');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() { 
+        modal.classList.add('hide');
+        modal.classList.remove('show');
+        document.body.style.overflow = '';
+    }
+
     modalTrigger.forEach(btn => {
         btn.addEventListener('click', () =>{
             modal.classList.add('show');
@@ -115,123 +126,122 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    new shopCard (
-        "img/shop/T-S_1_whiteH.png",
-        "whiteH",
-        "T-shirt №1",
-        "Homeland is hero - beige embroidery",
-        20,
-        ".shop .container"
-    ).render();
+    const getResource = async (url) => {
+        const res = await fetch (url);
 
-    new shopCard (
-        "img/shop/T-S_2_goldH.png",
-        "goldH",
-        "T-shirt №2",
-        "Homeland is hero - yellow embroidery",
-        27,
-        ".shop .container"
-    ).render();
+        if (!res.ok) {
+            throw new Error (`Could not fetch ${url}, status: ${res.status}`);
+        }
 
-    new shopCard (
-        "img/shop/T-S_3_blueH.png",
-        "blueH",
-        "T-shirt №3",
-        "Homeland is hero - blue embroidery",
-        27,
-        ".shop .container"
-    ).render();
+        return await res.json();
+    };
 
-    new shopCard (
-        "img/shop/T-S_1_whiteH.png",
-        "whiteH",
-        "T-shirt №1",
-        "Homeland is hero - beige embroidery",
-        20,
-        ".shop .container"
-    ).render();
+    getResource('http://localhost:3000/goods')
+        .then(data => {
+            data.forEach(({img, altimg, title, descr, price}) => {
+                new shopCard(img, altimg, title, descr, price, '.shop .container').render();
+            });
+        });
 
-    new shopCard (
-        "img/shop/T-S_2_goldH.png",
-        "goldH",
-        "T-shirt №2",
-        "Homeland is hero - yellow embroidery",
-        27,
-        ".shop .container"
-    ).render();
-
-    new shopCard (
-        "img/shop/T-S_1_whiteH.png",
-        "whiteH",
-        "T-shirt №1",
-        "Homeland is hero - beige embroidery",
-        20,
-        ".shop .container"
-    ).render();
-    
-    new shopCard (
-        "img/shop/T-S_3_blueH.png",
-        "blueH",
-        "T-shirt №3",
-        "Homeland is hero - blue embroidery",
-        27,
-        ".shop .container"
-    ).render();
-
-    new shopCard (
-        "img/shop/T-S_2_goldH.png",
-        "goldH",
-        "T-shirt №2",
-        "Homeland is hero - yellow embroidery",
-        27,
-        ".shop .container"
-    ).render();
 
     //_------- FORMS-----
 
     const forms = document.querySelectorAll('form');
 
     const message = {
-        loading: 'Loading',
-        // success: 'Thank you!',
+        loading: 'img/anim/spinner.svg',
+        success: 'Welcome',
         failure: 'Ooops... Try again'
     };
 
     forms.forEach(item => {
-        postData(item);
+        bindPostData(item);
     });
 
-    function postData(form) {
+    const postData = async (url, data) => {
+        const res = await fetch (url, {
+            method: "POST",
+            headers: {
+                'Content-type': 'application/json'
+            }, 
+            body: data
+        });
+        return await res.json();
+    };
+
+    function bindPostData(form) {
         form.addEventListener('submit', (e) => {
             e.preventDefault();
 
-            const statusMessage = document.createElement('div');
-            statusMessage.classList.add('status');
-            statusMessage.textContent = message.loading;
-            form.append(statusMessage);
+            const statusMessage = document.createElement('img');
+            statusMessage.src = message.loading;
+            statusMessage.style.cssText = `
+                display: block;
+                margin: 0 auto;
+            `;
+            // form.append(statusMessage);
+            form.insertAdjacentElement('afterend', statusMessage);
 
-            const request = new XMLHttpRequest();
-            request.open('POST', 'server.php');
+            // const request = new XMLHttpRequest();
+            // request.open('POST', 'server.php');
 
             // request.setRequestHeader('Content-type', 'multipart/form-data');
             const formData = new FormData(form);
-
-            request.send(formData);
-
-            request.addEventListener('load', () => {
-                if(request.status === 200) {
-                    console.log(request.response);
-                    statusMessage.textContent = message.success;
-                    form.reset();
-                    setTimeout(() => {
-                        statusMessage.remove();
-                    }, 2000);
-                } else {
-                    statusMessage.textContent = message.failure;
-                }
+            // request.send(formData);
+            const json = JSON.stringify(Object.fromEntries(formData.entries()));            
+            postData('http://localhost:3000/requests', json)
+            .then(data => {
+                console.log(data);
+                showThanksModal(message.success);
+                form.reset();
+                statusMessage.remove();
+            }).catch(() => {
+                showThanksModal(message.failure);
+            }).finally(() => {
+                form.reset();
             });
-
         });
     }
+
+    function showThanksModal(message) {
+        modalWindow.classList.add('hide');
+        modalWindowSgn.classList.add('hide');
+        openModal();
+        
+        const thanksModal = document.createElement('div');
+            thanksModal.classList.add('modalWindow');
+            thanksModal.innerHTML = `
+                <div class="modalContent">
+                    <div data-close class="modalClose">x</div>
+                    <div class="modalTitle">${message}</div>
+                </div>
+            `;
+
+            document.querySelector('.modal').append(thanksModal);
+            setTimeout(() => {
+                thanksModal.remove();
+                modalWindow.classList.add('show');
+                modalWindow.classList.remove('hide');
+                closeModal();
+            }, 2000);
+
+    }
+
+    //-------Open Search/Close
+
+    const btnSearch = document.querySelector('.btn_search'),
+          inputSearch = document.querySelector('.inpSearch');
+
+    btnSearch.addEventListener('click', () =>{
+        toggle(inputSearch, 'hide');
+    });
+
+    
+    fetch('http://localhost:3000/goods')
+        .then(data => data.json())
+        .then (res => console.log(res));
+
+
+
 });
 
