@@ -203,28 +203,30 @@ body {
 }
 
 /* ---------------------------------------CENTRE---------------------------------- */
-.divCentre {
+
+.container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    padding: 40px 20px;
+    margin: 20px 20px;
     position: relative;
-    margin-bottom: 90px;
-}
+    justify-content: center;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.147);
+}   
 
 .mainImg {
-    max-width: 500px;
-    max-height: 500px;
-    margin: 80px 0px 0px 0px;
+    display: flex;
+    justify-content: end;
 }
 .mainImg img {
-    height: 100%;
+   
+    max-height: 500px;
 }
 
 .rightCentre {
     display: inline-block;
     width: 45%;
-    padding-left: 80px;
-    margin-top: 80px;
+    padding: 10px 0px 0px 60px;
 }
 
 
@@ -235,7 +237,6 @@ body {
 }
 h1 {
     font-size: 85px ;
-    margin: 0px 0px 0px 0px;
     text-shadow: -4px 5px 10px rgba(0, 0, 0, 0.1);
 }
 h2 {
@@ -246,7 +247,6 @@ h2 {
 
 .textP {
     display: block;
-    max-width: 500px;
     font-size: 18px;
 }
 
@@ -584,19 +584,13 @@ h2 {
 
 
 
-/* ---------------------GELLARY--------------------------- */
-.container {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 20px 20px;
-    justify-content: center;
-    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.147);
-}   
+/* ---------------------GALLERY--------------------------- */
+
 .title_gallery {
     text-align: center;
     font-size: 32px;
     color: #171717;
-    padding: 15px;
+    padding: 20px 15px 0px 15px;
 }
 
 .gallery_left {
@@ -640,6 +634,7 @@ h2 {
     position: absolute;
     bottom: 50%;
     width: 100%;
+    z-index: 17;
 }
 
 .prev_arrow {
