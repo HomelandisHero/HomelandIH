@@ -1,0 +1,110 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Oranienbaum', serif;
+    outline: 0;
+    outline-offset: 0;
+}
+
+body {
+    background-color: #fbfbfb;
+
+}
+
+.return-link {
+    text-align: center;
+    font-size: 24px;
+    padding: 20px;
+}
+
+.shop {
+    background-color: #fbfbfb;
+    padding: 25px 0px 40px 0px;
+}
+
+.shop h2 {
+    color: #232323;
+    text-align: center;
+    font-size: 40px;
+    text-shadow: none;
+}
+
+.shopField {
+    margin: 30px 0px 0px 0px;
+    padding: 25px 0px 25px 0px;
+    width: 100%;
+    background-color: #dddddd24;
+    box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.2);
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0px 20px;
+}   
+
+.shop_item {
+    position: relative;
+    max-width: 300px;
+    min-height: 350px;
+    font-size: 18px;
+    background-color: #fefefe;
+    color: #171717ad;
+    margin: 5px 5px 5px 5px;
+}
+.shop_item:hover {
+    transition-duration: 0.15s;
+    transform: scale(0.99);
+    color: black;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.img-shop{
+    padding: 15px 0px 0px 0px;
+}
+.shop_item img {
+    width: 100%;
+}
+
+.fav-shop {
+    width: 33px;
+    position: absolute;
+    left: 85%;
+    bottom: 90%;
+}
+.btn-fav-shop {
+    border: 0px solid rgba(0, 0, 0, 0.1);
+    background-color: white;
+    border-radius: 70%;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+}
+.btn-fav-shop:hover {
+    transition-duration: 0.15s;
+    transform: scale(0.93);
+}
+.icon-fav-shop {
+    content: url(/MyPractic/img/icons/heart.png);
+    width: 100%;
+    padding: 5px 5px 3px 5px;
+    align-items: center;
+    
+}
+
+.shop_title {
+    padding: 5px 0px 5px 5px;
+    font-size: 1;
+    font-weight: 200;
+}
+
+.shop_descr {
+    padding: 0px 0px 0px 5px;
+}
+
+.shop_price {
+    font-size: 20px;
+    padding: 20px 0px 20px 0px;
+    text-align: center;
+}
