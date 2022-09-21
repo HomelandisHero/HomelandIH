@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
             this.price = price;
             this.parent = document.querySelector(parentSelector);
             this.classes = classes;
-            this.transfer = 0.87;
+            this.transfer = 0.88;
             this.changeToGBR();
         }
 

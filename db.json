@@ -29,32 +29,32 @@
       "price": 20
     },
     {
-      "img": "img/shop/T-S_2_goldH.png",
-      "altimg": "goldH",
-      "title": "T-shirt №2",
-      "descr": "Homeland is hero - yellow embroidery",
-      "price": 27
+      "img": "img/shop/sweater/4_pink.png",
+      "altimg": "pinkSw",
+      "title": "Sweater №4",
+      "descr": "Homeland is hero - pink embroidery",
+      "price": 40
     },
     {
-      "img": "img/shop/T-S_1_whiteH.png",
-      "altimg": "whiteH",
-      "title": "T-shirt №1",
-      "descr": "Homeland is hero - beige embroidery",
-      "price": 20
-    },
-    {
-      "img": "img/shop/T-S_3_blueH.png",
-      "altimg": "blueH",
-      "title": "T-shirt №3",
+      "img": "img/shop/sweater/3_blue.png",
+      "altimg": "blueSw",
+      "title": "Sweater №3",
       "descr": "Homeland is hero - blue embroidery",
-      "price": 27
+      "price": 40
     },
     {
-      "img": "img/shop/T-S_2_goldH.png",
-      "altimg": "goldH",
-      "title": "T-shirt №2",
+      "img": "img/shop/sweater/1_white.png",
+      "altimg": "whiteSw",
+      "title": "Sweater №1",
+      "descr": "Homeland is hero - white embroidery",
+      "price": 40
+    },
+    {
+      "img": "img/shop/sweater/2_yellow.png",
+      "altimg": "yellowSw",
+      "title": "Sweater №2",
       "descr": "Homeland is hero - yellow embroidery",
-      "price": 27
+      "price": 40
     }
   ],
   "requests": [
@@ -78,6 +78,11 @@
       "resPassword": "fasfadsfasdAD",
       "tel": "123123123123",
       "id": 5
+    },
+    {
+      "email": "sss@gmail.com",
+      "password": "sssSSS2726354",
+      "id": 6
     }
   ]
 }
