@@ -206,20 +206,23 @@ body {
 
 .container {
     display: flex;
+    background-color: #f7f7f7;
     flex-wrap: wrap;
     padding: 40px 20px;
     margin: 20px 20px;
     position: relative;
     justify-content: center;
-    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.147);
+    /* box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.147); */
+    
+    box-shadow: inset 0px 4px 10px rgba(0, 0, 0, 0.1);
 }   
 
 .mainImg {
     display: flex;
     justify-content: end;
+    
 }
 .mainImg img {
-   
     max-height: 500px;
 }
 
@@ -664,7 +667,6 @@ h2 {
     justify-content: space-between;
     width: 130px;
     margin-right: 80%;
-    padding: 0px 0px 30px 0px;
 }
 .ic_social_media {
     width: 20px;
