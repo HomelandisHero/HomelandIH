@@ -203,21 +203,21 @@
 
         <div class="calc_of_size">
             <div class="title_page">Calculate your size</div>
-            <div class="container">
+            <div id="container_calc" class="container">
 
                 <div class="calc_left">
                     <div class="calc_left_window">
                         <div class="calc_choose" id="gender">
-                            <div class="calc_choose_item calc_choose_item-active">Woman</div>
-                            <div class="calc_choose_item">Man</div>
+                            <div id="female" class="calc_choose_item calc_choose-item_active">Woman</div>
+                            <div id="male" class="calc_choose_item">Man</div>
                         </div>
                         <div class="calc_cm">
                             <p>Size is indicated in "cm"...</p>
                         </div>
                         <div class="calc_choose calc_choose_mid">
                             <!-- <input type="text" id="shoulder_width" name="shoulder_width" placeholder="Shoulder width..." class="calc_choose_item"> -->
-                            <input type="text" id="chest_girth" name="chest_girth" placeholder="Сhest girth..." class="calc_choose_item">
-                            <input type="text" id="waist_size" name="waist_size" placeholder="Waist size..." class="calc_choose_item">
+                            <input type="text" id="chestGirth" name="chest_girth" placeholder="Сhest girth..." class="calc_choose_item">
+                            <input type="text" id="waistSize" name="waist_size" placeholder="Waist size..." class="calc_choose_item">
                         </div>
         
                         <div class="calc_choose calc_choose_bottom">
@@ -228,14 +228,21 @@
 
                 <div class="calc_right">
                         <div class="calc_results">
-                            <span>XL</span>
+                            <span></span>
                         </div>
                 </div>
                 
             </div>
         </div>
-        
 
+        
+        <div class="divider"></div>
+
+        <footer id="site_footer">
+            <div class="all_footer">
+                <p>footer... (soon)</p>
+            </div>
+        </footer>
         <!-- <div>
             <select name="color">
                 <option value="black">black</option>
