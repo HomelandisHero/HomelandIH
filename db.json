@@ -83,6 +83,13 @@
       "email": "sss@gmail.com",
       "password": "sssSSS2726354",
       "id": 6
+    },
+    {
+      "email": "gcsd@gmail.com",
+      "password": "hbvvf",
+      "resPassword": "hbvvf",
+      "tel": "+4456789863",
+      "id": 7
     }
   ]
 }
