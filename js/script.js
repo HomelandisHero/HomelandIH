@@ -364,10 +364,32 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+
+    //-----------CALC---------------
+
     const result = document.querySelector('.calc_results span');
-    let sex = 'female', 
-        chestGirth, waistSize, height;
+    let sex, chestGirth, waistSize, height;
+
+    if (localStorage.getItem('sex')) {
+        sex = localStorage.getItem('sex');
+    } else {
+        sex = 'female';
+        localStorage.setItem('sex', 'female');
+    }
     
+    function initLocalSt(selector, activeClass){
+        const elements = document.querySelectorAll(selector);
+
+        elements.forEach(elem => {
+            elem.classList.remove(activeClass);
+            if(elem.getAttribute('id') === localStorage.getItem('sex')) {
+                elem.classList.add(activeClass);
+            }
+        }); 
+        
+    }
+    initLocalSt('#gender div', 'calc_choose-item_active');
+
     function calcTotal() {
         if(!sex || !chestGirth || !waistSize || !height) {
             result.textContent = '?';
@@ -376,7 +398,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (sex === 'female') {
             result.textContent = chestGirth + waistSize + height;
-           
+            
+            if (result.textContent <= 290) { result.textContent = '?'; }
             if (result.textContent <= 314) { result.textContent = 'XS'; }
             if (result.textContent <= 324) { result.textContent = 'S'; }
             if (result.textContent <= 336) { result.textContent = 'M'; }
@@ -387,6 +410,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             result.textContent = chestGirth + waistSize + height;
 
+            if (result.textContent <= 300) { result.textContent = '?'; }
             if (result.textContent <= 324) { result.textContent = 'S'; }
             if (result.textContent <= 348) { result.textContent = 'M'; }
             if (result.textContent <= 370) { result.textContent = 'L'; }
@@ -399,13 +423,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     calcTotal();
 
-    function getStaticElements(parentSelector, activeClass) {
-        const elements = document.querySelectorAll(`${parentSelector} div`);
+    function getStaticElements(selector, activeClass) {
+        const elements = document.querySelectorAll(selector);
 
         elements.forEach(elem => {
             elem.addEventListener('click', (e) => {
                 if(e.target.getAttribute('id')) {
                     sex = e.target.getAttribute('id');
+                    localStorage.setItem('sex', e.target.getAttribute('id'));
                 }
 
                 elements.forEach(elem => {
@@ -419,12 +444,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
     }
-    getStaticElements('#gender', 'calc_choose-item_active');
+    getStaticElements('#gender div', 'calc_choose-item_active');
 
     function getDinamicInfo(selector) {
         const input = document.querySelector(selector);
 
         input.addEventListener('input', () => {
+            
+            if (input.value.match(/\D/g)) {
+                input.style.border = '1px solid red';
+            } else {
+                input.style.border = '1px solid #17171727';
+            }
+
             switch(input.getAttribute('id')) {
                 case 'chestGirth':
                     chestGirth = +input.value;

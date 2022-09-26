@@ -214,10 +214,12 @@ body {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    max-width: 30px ;
 }
+
 .soc_media_divider {
     width: 1px;
-    height: 100px;
+    height: 140px;
     background-color: black;
     margin-top: 15px;
 
@@ -715,6 +717,19 @@ h2 {
 
 
 /* ---------------------CALC--------------------------- */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none; 
+}
+
+input[type='number'],
+input[type="number"]:hover,
+input[type="number"]:focus {
+    appearance: none;
+    -moz-appearance: textfield;
+}
+/* ------------------------------------------ДЛЯ ТОГО ЩОБ УБРАТИ СТРІЛОЧКИ В ІНПУТАХ---------------------  */
+
 .calc_of_size {
     margin-bottom: 50px;
 }
@@ -722,9 +737,7 @@ h2 {
     /* margin-top: 52px; */
     margin: auto 0px;
 }
-.calc_left_window {
 
-}
 .calc_choose {
     display: flex;
     margin: 15px 0px;
@@ -741,9 +754,12 @@ h2 {
     margin-right: 5px;
     border: 1px solid #17171727;
     border-radius: 5px;
+    -webkit-appearance: none;
+
 }
-.calc_choose_item:hover{
-    box-shadow: 0px 0px 5px rgba(13, 13, 13, 0.2);
+.calc_choose_item:hover {
+    border: 1px solid #1717176a;
+    /* box-shadow: 0px 0px 5px rgba(13, 13, 13, 0.2); */
 }
 .calc_choose-item_active{
     background-color: #171717;
