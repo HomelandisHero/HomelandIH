@@ -1,17 +1,18 @@
 'use strict';
 
+import calc from './modules/calc';
+import forms from './modules/forms';
+import modal from './modules/modal';
+import slider from './modules/slider';
+import toggle from './modules/toggle';
+
 document.addEventListener('DOMContentLoaded', () => {
-    const calc = require('./modules/calc'),
-          forms = require('./modules/forms'),
-          modal = require('./modules/modal'),
-          slider = require('./modules/slider'),
-          toggle = require('./modules/toggle');
-    
+        
     calc();
     forms();
     modal();
     slider();
-    toggle();
+    toggle(); 
     
 
     

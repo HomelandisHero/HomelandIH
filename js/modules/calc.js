@@ -2,9 +2,20 @@ function calc() {
 
     //-----------CALC---------------
 
-    const result = document.querySelector('.calc_results span');
+    const result = document.querySelector('.calc_results span'),
+          inputs = document.querySelectorAll('.calc_choose_item');
     let sex, chestGirth, waistSize, height;
 
+    inputs.forEach(elem => {
+        elem.onmouseover = function() {
+            elem.style.border = '1px solid #1717176a';
+        };
+
+        elem.onmouseout = function() {
+            elem.style.border = '';
+        };
+    });
+    
     if (localStorage.getItem('sex')) {
         sex = localStorage.getItem('sex');
     } else {
@@ -83,21 +94,23 @@ function calc() {
 
     function getDinamicInfo(selector) {
         const input = document.querySelector(selector);
-
+        
         input.addEventListener('input', () => {
             
             if (input.value.match(/\D/g)) {
                 input.style.border = '1px solid red';
+                // input.classList.add('red_border');
                 result.textContent = '?';
             } else {
                 input.style.border = '1px solid #17171727';
+                
             }
 
-            if(input.value <= 38) {
-                input.style.border = '1px solid red';
-            } else {
-                input.style.border = '1px solid #17171727';
-            }
+            // if(input.value <= 38) {
+            //     input.style.border = '1px solid red';
+            // } else {
+            //     input.style.border = '1px solid #17171727';
+            // }
 
             switch(input.getAttribute('id')) {
                 case 'chestGirth':
@@ -118,4 +131,4 @@ function calc() {
     getDinamicInfo('#height');
 }
 
-module.exports = calc;
+export default calc;

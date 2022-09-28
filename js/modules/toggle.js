@@ -28,4 +28,4 @@ function toggle() {
     });
 }
 
-module.exports = toggle;
+export default toggle;
