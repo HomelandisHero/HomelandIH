@@ -59,7 +59,7 @@ body {
     transition-duration: 0.15s;
     transform: scale(0.99);
     color: black;
-    /* border: 1px solid rgba(0, 0, 0, 0.1); */
+    border: 1px solid rgba(0, 0, 0, 0.1);
 }
 .img-shop{
     padding: 15px 0px 0px 0px;
@@ -104,10 +104,12 @@ body {
 
 .shop_descr {
     padding: 0px 0px 0px 5px;
+    width: 100%;
 }
 
 .shop_price {
     font-size: 21px;
     padding: 20px 0px 20px 0px;
     text-align: center;
+    vertical-align: bottom;
 }

@@ -1,5 +1,7 @@
-'use strict';
-document.addEventListener('DOMContentLoaded', () => {
+
+
+function shopCards() {
+
     class shopCard {
         constructor (src, alt, title, descr, price, parentSelector, ...classes){
             this.src = src;
@@ -12,11 +14,11 @@ document.addEventListener('DOMContentLoaded', () => {
             this.transfer = 0.88;
             this.changeToGBR();
         }
-
+    
         changeToGBR() {
             this.price = (this.price * this.transfer).toFixed(0);
         }
-
+    
         render() {
             const element = document.createElement('div');
             if (this.classes.length === 0) {
@@ -25,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 this.classes.forEach(className => element.classList.add(className));
             }
-
+    
             element.innerHTML = `
                     <div class="img-shop"><img src = ${this.src} alt = ${this.alt}></div>
                     <div class="fav-shop">
@@ -41,25 +43,27 @@ document.addEventListener('DOMContentLoaded', () => {
             this.parent.append(element);
         }
     }
-
-    const getResource = async (url) => {
-        const res = await fetch (url);
-
+    
+    async function getResource(url) {
+        let res = await fetch (url);
+    
         if (!res.ok) {
             throw new Error (`Could not fetch ${url}, status: ${res.status}`);
         }
-
+    
         return await res.json();
-    };
-
+    }
+    
     getResource('http://localhost:3000/goods')
         .then(data => {
             data.forEach(({img, altimg, title, descr, price}) => {
                 new shopCard(img, altimg, title, descr, price, '.shop .container').render();
             });
         });
-
+    
     fetch('http://localhost:3000/goods')
     .then(data => data.json())
     .then (res => console.log(res));
-});
+}
+shopCards();
+
