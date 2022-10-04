@@ -1,20 +1,20 @@
-function slider() {
+function slider({container, slide, prevArrow, nextArrow, wrapper, allSlides}) {
 
     //--------------- SLIDER ---------------
 
-    const eachSlide = document.querySelectorAll('.slides_gallery'),
-          slider = document.querySelector('.gallery_box'),
-          prev = document.querySelector('.prev_arrow'),
-          next = document.querySelector('.next_arrow'),
-          slidesWrapper =document.querySelector('.slides_wrapper'),
-          allSlides = document.querySelector('.all_slides'),
+    const eachSlide = document.querySelectorAll(slide),
+          slider = document.querySelector(container),
+          prev = document.querySelector(prevArrow),
+          next = document.querySelector(nextArrow),
+          slidesWrapper =document.querySelector(wrapper),
+          slides = document.querySelector(allSlides),
           width = window.getComputedStyle(slidesWrapper).width; 
     let slideIndex = 1;
     let offset = 0;
 
-    allSlides.style.width = 100 * eachSlide.length + '%';
-    allSlides.style.display = 'flex';
-    allSlides.style.transition = '1s all';
+    slides.style.width = 100 * eachSlide.length + '%';
+    slides.style.display = 'flex';
+    slides.style.transition = '1s all';
 
     slidesWrapper.style.overflow = 'hidden';
 
@@ -86,7 +86,7 @@ function slider() {
         dots.forEach(dot => dot.style.opacity = '.2');
         dots[slideIndex - 1].style.opacity = 1;
 
-        allSlides.style.transform = `translateX(-${offset}px)`;
+        slides.style.transform = `translateX(-${offset}px)`;
     });
 
     prev.addEventListener('click', () => {
@@ -105,7 +105,7 @@ function slider() {
         dots.forEach(dot => dot.style.opacity = '.2');
         dots[slideIndex - 1].style.opacity = 1;
         
-        allSlides.style.transform = `translateX(-${offset}px)`;
+        slides.style.transform = `translateX(-${offset}px)`;
     });
 
     dots.forEach(dot => {
@@ -115,7 +115,7 @@ function slider() {
             slideIndex = slideTo;
 
             offset = deleteNotDigits(width) * (slideTo - 1);
-            allSlides.style.transform = `translateX(-${offset}px)`;
+            slides.style.transform = `translateX(-${offset}px)`;
 
             dots.forEach(dot => dot.style.opacity = '.2');
             dots[slideIndex - 1].style.opacity = 1;

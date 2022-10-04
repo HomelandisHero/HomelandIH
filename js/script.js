@@ -9,10 +9,18 @@ import toggle from './modules/toggle';
 document.addEventListener('DOMContentLoaded', () => {
         
     calc();
-    forms();
-    modal();
-    slider();
-    toggle(); 
+    forms('form');
+    modal('[data-modal]', '.modal', '.modalWindow');
+    slider({
+        container: '.gallery_box',
+        slide: '.slides_gallery',
+        prevArrow: '.prev_arrow',
+        nextArrow: '.next_arrow',
+        wrapper: '.slides_wrapper',
+        allSlides: '.all_slides' 
+    });
+    toggle('#myDropdown', 'hide', 'btn_toggle'); 
+    toggle('.inpSearch', 'hide', 'btn_search'); 
     
 
     

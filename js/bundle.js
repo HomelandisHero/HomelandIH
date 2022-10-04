@@ -159,11 +159,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-function forms() {
+/* harmony import */ var _modal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modal */ "./js/modules/modal.js");
+/* harmony import */ var _services_services__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/services */ "./js/services/services.js");
+
+
+
+function forms(formSelector) {
 
     //_------------------- FORMS-------------------
 
-    const forms = document.querySelectorAll('form');
+    const forms = document.querySelectorAll(formSelector);
 
     const message = {
         loading: 'img/anim/spinner.svg',
@@ -174,17 +179,6 @@ function forms() {
     forms.forEach(item => {
         bindPostData(item);
     });
-
-    const postData = async (url, data) => {
-        const res = await fetch (url, {
-            method: "POST",
-            headers: {
-                'Content-type': 'application/json'
-            }, 
-            body: data
-        });
-        return await res.json();
-    };
 
     function bindPostData(form) {
         form.addEventListener('submit', (e) => {
@@ -205,12 +199,13 @@ function forms() {
             // request.setRequestHeader('Content-type', 'multipart/form-data');
             const formData = new FormData(form);
             // request.send(formData);
-            const json = JSON.stringify(Object.fromEntries(formData.entries()));            
-            postData('http://localhost:3000/requests', json)
+            const json = JSON.stringify(Object.fromEntries(formData.entries()));  
+
+            (0,_services_services__WEBPACK_IMPORTED_MODULE_1__.postData)('http://localhost:3000/requests', json)
             .then(data => {
                 console.log(data);
                 showThanksModal(message.success);
-                form.reset();
+                // form.reset();
                 statusMessage.remove();
             }).catch(() => {
                 showThanksModal(message.failure);
@@ -221,32 +216,34 @@ function forms() {
     }
 
     function showThanksModal(message) {
-        modalWindow.classList.add('hide');
-        modalWindowSgn.classList.add('hide');
-        openModal();
+        const prevModalDialog = document.querySelector('.modalWindow');
+
+        prevModalDialog.classList.add('hide');
+        // modalWindowSgn.classList.add('hide');
+        (0,_modal__WEBPACK_IMPORTED_MODULE_0__.openModal)('.modal');
         
         const thanksModal = document.createElement('div');
-            thanksModal.classList.add('modalWindow');
-            thanksModal.innerHTML = `
-                <div class="modalContent">
-                    <div data-close class="modalClose">x</div>
-                    <div class="modalTitle">${message}</div>
-                </div>
-            `;
-
-            document.querySelector('.modal').append(thanksModal);
-            setTimeout(() => {
-                thanksModal.remove();
-                modalWindow.classList.add('show');
-                modalWindow.classList.remove('hide');
-                closeModal();
-            }, 2000);
+        thanksModal.classList.add('modalWindow');
+        thanksModal.innerHTML = `
+            <div class="modalContent">
+                <div data-close class="modalClose">x</div>
+                <div class="modalTitle">${message}</div>
+            </div>
+        `;
+        document.querySelector('.modal').append(thanksModal);
+        setTimeout(() => {
+            thanksModal.remove();
+            prevModalDialog.classList.add('show');
+            prevModalDialog.classList.remove('hide');
+            (0,_modal__WEBPACK_IMPORTED_MODULE_0__.closeModal)('.modal');
+        }, 2000);
 
     }
+    
 
-    fetch('http://localhost:3000/goods')
-        .then(data => data.json())
-        .then (res => console.log(res));
+    // fetch('http://localhost:3000/goods')
+    //     .then(data => data.json())
+    //     .then (res => console.log(res));
 
 }
 
@@ -262,36 +259,43 @@ function forms() {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "closeModal": () => (/* binding */ closeModal),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
+/* harmony export */   "openModal": () => (/* binding */ openModal)
 /* harmony export */ });
-function modal() {
+function openModal(modalSelector) {
+    const modal = document.querySelector(modalSelector);
+
+    modal.classList.add('show');
+    modal.classList.remove('hide');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeModal(modalSelector) { 
+    const modal = document.querySelector(modalSelector);
+
+    modal.classList.add('hide');
+    modal.classList.remove('show'); 
+    document.body.style.overflow = '';
+}
+
+function modal(triggerSelector, modalSelector) {
 
     //---------------Modal window -----------------------------
     
-    const modalTrigger = document.querySelectorAll('[data-modal]'),
+    const modalTrigger = document.querySelectorAll(triggerSelector),
           modalTriggerSgn = document.querySelectorAll('[data-modalSng]'),      
-          modal = document.querySelector('.modal'),
+          modal = document.querySelector(modalSelector),
           modalCloseBtn = document.querySelectorAll('[data-close]'),
           modalWindow = document.querySelector('.modalWindow'),
           modalWindowSgn = document.querySelector('.modalWindowSgn');
 
 
-    function openModal() {
-        modal.classList.add('show');
-        modal.classList.remove('hide');
-        document.body.style.overflow = 'hidden';
-    }
-
-    function closeModal() { 
-        modal.classList.add('hide');
-        modal.classList.remove('show');
-        document.body.style.overflow = '';
-    }
-
     modalTrigger.forEach(btn => {
-        btn.addEventListener('click', () =>{
-            modal.classList.add('show');
-            modal.classList.remove('hide');
+        btn.addEventListener('click', () => { 
+            openModal(modalSelector); 
+            //     modal.classList.add('show');
+            //     modal.classList.remove('hide');
             modalWindowSgn.classList.add('hide');
             modalWindow.classList.add('show');
             modalWindow.classList.remove('hide');
@@ -299,39 +303,45 @@ function modal() {
         });
     
     });
+
     modalCloseBtn.forEach(btn => {
         btn.addEventListener('click', () =>{
-            modal.classList.add('hide');
-            modal.classList.remove('show');
-            modalWindow.classList.add('show');
-            modalWindow.classList.remove('hide');
-            modalWindowSgn.classList.add('show');
-            modalWindowSgn.classList.remove('hide');
-            document.body.style.overflow = '';
+            closeModal(modalSelector);
+            // modal.classList.add('hide');
+            // modal.classList.remove('show');
+            // modalWindow.classList.add('show');
+            // modalWindow.classList.remove('hide');
+            // modalWindowSgn.classList.add('show');
+            // modalWindowSgn.classList.remove('hide');
+            // document.body.style.overflow = '';
         });
     });
     
     modalTriggerSgn.forEach(btn => {
         btn.addEventListener('click', () =>{
-            modal.classList.add('show');
-            modal.classList.remove('hide');
+            openModal(modalSelector); 
+            // modal.classList.add('show');
+            // modal.classList.remove('hide');
             modalWindow.classList.add('hide');
             modalWindowSgn.classList.add('show');
             modalWindowSgn.classList.remove('hide');
-            document.body.style.overflow = 'hidden';
+            // document.body.style.overflow = 'hidden';
         });
     });
 
     modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-            modal.classList.add('hide');
-            modal.classList.remove('show');
-            document.body.style.overflow = '';
+        if (e.target === modal || e.target.getAttribute('data-close') == "") {
+            closeModal(modalSelector);
+            // modal.classList.add('hide');
+            // modal.classList.remove('show');
+            // document.body.style.overflow = '';
         }
     });
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (modal);
+
+
 
 /***/ }),
 
@@ -345,23 +355,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-function slider() {
+function slider({container, slide, prevArrow, nextArrow, wrapper, allSlides}) {
 
     //--------------- SLIDER ---------------
 
-    const eachSlide = document.querySelectorAll('.slides_gallery'),
-          slider = document.querySelector('.gallery_box'),
-          prev = document.querySelector('.prev_arrow'),
-          next = document.querySelector('.next_arrow'),
-          slidesWrapper =document.querySelector('.slides_wrapper'),
-          allSlides = document.querySelector('.all_slides'),
+    const eachSlide = document.querySelectorAll(slide),
+          slider = document.querySelector(container),
+          prev = document.querySelector(prevArrow),
+          next = document.querySelector(nextArrow),
+          slidesWrapper =document.querySelector(wrapper),
+          slides = document.querySelector(allSlides),
           width = window.getComputedStyle(slidesWrapper).width; 
     let slideIndex = 1;
     let offset = 0;
 
-    allSlides.style.width = 100 * eachSlide.length + '%';
-    allSlides.style.display = 'flex';
-    allSlides.style.transition = '1s all';
+    slides.style.width = 100 * eachSlide.length + '%';
+    slides.style.display = 'flex';
+    slides.style.transition = '1s all';
 
     slidesWrapper.style.overflow = 'hidden';
 
@@ -433,7 +443,7 @@ function slider() {
         dots.forEach(dot => dot.style.opacity = '.2');
         dots[slideIndex - 1].style.opacity = 1;
 
-        allSlides.style.transform = `translateX(-${offset}px)`;
+        slides.style.transform = `translateX(-${offset}px)`;
     });
 
     prev.addEventListener('click', () => {
@@ -452,7 +462,7 @@ function slider() {
         dots.forEach(dot => dot.style.opacity = '.2');
         dots[slideIndex - 1].style.opacity = 1;
         
-        allSlides.style.transform = `translateX(-${offset}px)`;
+        slides.style.transform = `translateX(-${offset}px)`;
     });
 
     dots.forEach(dot => {
@@ -462,7 +472,7 @@ function slider() {
             slideIndex = slideTo;
 
             offset = deleteNotDigits(width) * (slideTo - 1);
-            allSlides.style.transform = `translateX(-${offset}px)`;
+            slides.style.transform = `translateX(-${offset}px)`;
 
             dots.forEach(dot => dot.style.opacity = '.2');
             dots[slideIndex - 1].style.opacity = 1;
@@ -484,37 +494,71 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-function toggle() {
+//---------- FUNCTION TOGGLE -----------
 
-    //---------- FUNCTION TOGGLE -----------
-
-    const btnToggle = document.getElementById('btn_toggle'),
-    dropdownContent = document.querySelector('#myDropdown');
+function toggle(el, classname, btnToggle) {
+    const btnTogg = document.getElementById(btnToggle),
+    element = document.querySelector(el);
     
-    function toggle(el, classname) {
-        if(el.classList.contains(classname)){
-            el.classList.remove(classname);
+          
+    btnTogg.addEventListener('click', () =>{
+        if(element.classList.contains(classname)){
+            element.classList.remove(classname);
         } else {
-            el.classList.add(classname);
+            element.classList.add(classname);
         }
-    }
-
-    btnToggle.addEventListener('click', () =>{
-        toggle(dropdownContent, 'hide');
-    });
-
-
-    //-------Open Search/Close
-
-    const btnSearch = document.querySelector('.btn_search'),
-          inputSearch = document.querySelector('.inpSearch');
-
-    btnSearch.addEventListener('click', () =>{
-        toggle(inputSearch, 'hide');
     });
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (toggle);
+
+/***/ }),
+
+/***/ "./js/services/services.js":
+/*!*********************************!*\
+  !*** ./js/services/services.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "getResource": () => (/* binding */ getResource),
+/* harmony export */   "postData": () => (/* binding */ postData)
+/* harmony export */ });
+const postData = async (url, data) => {
+    const res = await fetch (url, {
+        method: "POST",
+        headers: {
+            'Content-type': 'application/json'
+        }, 
+        body: data
+    });
+    return await res.json();
+};
+
+
+
+// const getResource = async (url) => {
+//     let res = await fetch (url);
+
+//     if (!res.ok) {
+//         throw new Error (`Could not fetch ${url}, status: ${res.status}`);
+//     }
+
+//     return await res.json();
+// };
+async function getResource(url) {
+    let res = await fetch (url);
+
+    if (!res.ok) {
+        throw new Error (`Could not fetch ${url}, status: ${res.status}`);
+    }
+
+    return await res.json();
+}
+
+
+
 
 /***/ })
 
@@ -597,10 +641,18 @@ __webpack_require__.r(__webpack_exports__);
 document.addEventListener('DOMContentLoaded', () => {
         
     (0,_modules_calc__WEBPACK_IMPORTED_MODULE_0__["default"])();
-    (0,_modules_forms__WEBPACK_IMPORTED_MODULE_1__["default"])();
-    (0,_modules_modal__WEBPACK_IMPORTED_MODULE_2__["default"])();
-    (0,_modules_slider__WEBPACK_IMPORTED_MODULE_3__["default"])();
-    (0,_modules_toggle__WEBPACK_IMPORTED_MODULE_4__["default"])(); 
+    (0,_modules_forms__WEBPACK_IMPORTED_MODULE_1__["default"])('form');
+    (0,_modules_modal__WEBPACK_IMPORTED_MODULE_2__["default"])('[data-modal]', '.modal', '.modalWindow');
+    (0,_modules_slider__WEBPACK_IMPORTED_MODULE_3__["default"])({
+        container: '.gallery_box',
+        slide: '.slides_gallery',
+        prevArrow: '.prev_arrow',
+        nextArrow: '.next_arrow',
+        wrapper: '.slides_wrapper',
+        allSlides: '.all_slides' 
+    });
+    (0,_modules_toggle__WEBPACK_IMPORTED_MODULE_4__["default"])('#myDropdown', 'hide', 'btn_toggle'); 
+    (0,_modules_toggle__WEBPACK_IMPORTED_MODULE_4__["default"])('.inpSearch', 'hide', 'btn_search'); 
     
 
     
