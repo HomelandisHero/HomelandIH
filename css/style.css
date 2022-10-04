@@ -96,7 +96,7 @@ body {
     transition-duration: 0.15s;
     transform: scale(0.95);
 }
-.btn_search {
+#btn_search {
     width: 100%;
     height: 100%;
     border: 0px solid ;
@@ -273,6 +273,7 @@ body {
     margin: 50px 0px;
     
 }
+
 .mainImg img {
     max-height: 500px;
 }
