@@ -5,10 +5,15 @@ import forms from './modules/forms';
 import modal from './modules/modal';
 import slider from './modules/slider';
 import toggle from './modules/toggle';
+import shopCards from './modules/shop';
+import scrollTo from './modules/scrollTo';
 
 document.addEventListener('DOMContentLoaded', () => {
         
-    calc();
+    
+    shopCards();
+    scrollTo('.btnToGallery', '#diviGallery');
+    scrollTo('.btnToCalc', '#diviCalc');
     forms('form');
     modal('[data-modal]', '.modal', '.modalWindow');
     slider({
@@ -21,6 +26,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     toggle('#myDropdown', 'hide', 'btn_toggle'); 
     toggle('.inpSearch', 'hide', 'btn_search'); 
+    toggle('#myDropdown_acc', 'hide', 'btn_toggle_acc'); 
+    calc();
     
 
     
