@@ -11,6 +11,12 @@ body {
     background-color: #fbfbfb;
 
 }
+.show{
+    display: block;
+}
+.hide{
+    display: none;
+}
 
 .return-link {
     text-align: center;
@@ -31,26 +37,79 @@ body {
 }
 
 .shopField {
+    display: flex;
     margin: 30px 0px 0px 0px;
     padding: 25px 0px 25px 0px;
     width: 100%;
+    justify-content: center;
     background-color: #dddddd24;
     box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.2);
 }
 
+.shop_left {
+   
+}
+
+.filters_page {
+    width: 200px;
+    height: 100%;
+    margin: 0px 0px 0px 20px;
+
+
+}
+.each_filter{
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 1px;
+    /* padding: 15px 20px; */
+    margin: 0px 0px 5px 0px;
+
+}.each_filter:hover {
+    border: 1px solid rgba(0, 0, 0, 0.4);
+}
+.dropdown_content{
+    padding: 0px 0px 15px 10px;
+}
+.dropdown_content dt {
+    padding: 5px 10px;
+    align-items: center;
+}
+
+.dropdown_content input {
+    margin: 0px 5px 0px 0px;
+}
+
+
+.togg_btns_filters{
+    width: 100%;
+    padding: 15px 20px;
+
+}
+
+/* .container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0px 20px;
+}    */
 .container {
     display: flex;
-    /* display: inline-block; */
+    background-color: #f7f7f7;
     flex-wrap: wrap;
-    /* justify-content: space-around; */
+    padding: 0px 10px;
     margin: 0px 20px;
+    position: relative;
+    /* justify-content: center; */
+    /* box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.147); */
+    
+    box-shadow: inset 0px 4px 10px rgba(0, 0, 0, 0.1);
 }   
-
 .shop_item {
     position: relative;
-    width: calc(25% - 10px);
+    width: calc( 33% - 7px);
     min-width: 250px;
-    font-size: 125%;
+    font-size: 105%;
+    /* font-weight: 600; */
+    letter-spacing: 0.3px;
     background-color: #fefefe;
     color: #171717ad;
     margin: 5px 5px 5px 5px;
@@ -98,18 +157,18 @@ body {
 
 .shop_title {
     padding: 5px 0px 5px 5px;
-    font-size: 1;
     font-weight: 200;
 }
 
 .shop_descr {
-    padding: 0px 0px 0px 5px;
+    padding: 0px 5px 0px 5px;
     width: 100%;
 }
 
 .shop_price {
     font-size: 21px;
     padding: 20px 0px 20px 0px;
+    font-weight: 200;
     text-align: center;
     vertical-align: bottom;
 }

@@ -52,5 +52,5 @@ function toggle(el, classname, btnToggle) {
     //     }
     // });
 }
-
+export {toggle};
 export default toggle;

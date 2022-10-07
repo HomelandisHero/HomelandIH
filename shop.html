@@ -11,25 +11,85 @@
 </head>
 <body>
     <div class="return-link"><a href="index.html">Return to previous page</a></div>
-    
-    <div class="shop_main">
-        <div class="shop_left">
-            <div class="filters_page">
-                <div class="filters">
+
+    <div class="shop">
+        
+        <h2 class="title">Shop</h2>
+        <div class="shopField">
+            <div class="shop_left">
+                <div class="filters_page">
+                    <div id="gender" class="each_filter">
+                        <div id="toggle_btn_gender" type="submit" class="togg_btns_filters">Gender</div>
+                        <dl id="dropdownGen" class="dropdown_content hide">
+                            <dt>
+                                <input type="checkbox" id="male" name="male">
+                                <label for="male">Male</label>
+                            </dt>
+                            <dt>
+                                <input type="checkbox" id="female" name="female">
+                                <label for="female">Female</label>
+                            </dt>
+                        </dl>
+                    </div>
+                    <div id="size_filter" class="each_filter">
+                        <div id="toggle_btn_size" type="submit" class="togg_btns_filters">Size</div>
+                        <dl id="dropdownSize" class="dropdown_content hide">
+                           <dt> 
+                               <input type="checkbox" id="xs" name="xs">
+                               <label for="xs">Xs</label>
+                            </dt>
+                            
+                            <dt> 
+                                <input type="checkbox" id="s" name="s">
+                                <label for="s">S</label>
+                            </dt>
+                            
+                            <dt> 
+                                <input type="checkbox" id="m" name="m">
+                                <label for="m">M</label>
+                            </dt>
+                            
+                            <dt> 
+                                <input type="checkbox" id="l" name="l">
+                                <label for="l">L</label>
+                            </dt>
+                            <dt> 
+                                <input type="checkbox" id="xl" name="xl">
+                                <label for="xl">XL</label>
+                            </dt>
+                            
+                            <dt> 
+                                <input type="checkbox" id="xxl" name="xxl">
+                                <label for="xxl">XXL</label>
+                            </dt>
+            
+                            <dt> 
+                                <input type="checkbox" id="3xl" name="3xl">
+                                <label for="x3xls">3XL</label>
+                            </dt>
+                            
+                        </dl>
+                    </div>
+                    <div id="price" class="each_filter">
+                        <div id="toggle_btn_price" type="submit" class="togg_btns_filters">Price</div>
+                        <div id="dropdownPrice" class="dropdown_content hide">
+                            <input type="range" id="price" name="price" min="18" max="35">
+
+                        </div>
+                    </div>
                     
+                </div>
+                
+            </div>
+            
+            <div class="shop_right">
+                <div class="container">
+
                 </div>
             </div>
             
         </div>
-
-    </div>
-    <div class="shop">
-        <h2 class="title">Shop</h2>
-        <div class="shopField">
-            <div class="container">
-
-            </div>
-        </div>
+        
     </div>
     
 
