@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
         allSlides: '.all_slides' 
     });
     toggle('#myDropdown', 'hide', 'btn_toggle'); 
-    toggle('.inpSearch', 'hide', 'btn_search'); 
+    toggle('#inpSearch_toggle', 'hide', 'btn_search'); 
     toggle('#myDropdown_acc', 'hide', 'btn_toggle_acc'); 
     calc();
     

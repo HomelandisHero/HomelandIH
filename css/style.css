@@ -75,7 +75,7 @@ body {
     display:inline-flex;
     justify-content: end;
     align-items: center;
-    margin-left: 15px;
+    margin: 0px 14px;
 }
 .inpSearch {
     background-color: #ffffff00;
@@ -116,7 +116,8 @@ body {
 
 .centreButtons {
     display: flex;
-    margin: 0px 15px 0px 14px;
+    width: 130px;
+    justify-content: space-between;
 }
 
 .icons_h_c {
@@ -140,10 +141,13 @@ body {
 }
 
 .btn_acc {
-    width: 22px;
+    cursor: pointer;
+    width: 100%;
     background-color: #fbfbfb;
     border: 0px solid #17171700;
-    margin-right: 15px;
+}.btn_acc:hover {
+    transition-duration: 0.15s;
+    transform: scale(0.95);
 }
 .icAcc {
     content: url(/MyPractic/img/icons/account.svg);
@@ -198,7 +202,6 @@ body {
 .icBsk {
     content: url(/MyPractic/img/icons/basket.svg);
     width: 22px;
-    margin: 0px 15px 0px 15px;
 }
 
 .dropdown_acc-content div {

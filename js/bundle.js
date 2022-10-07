@@ -620,9 +620,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _modal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modal */ "./js/modules/modal.js");
-
-
 //---------- FUNCTION TOGGLE -----------
 
 // function closeToggle(el, btnToggle) {
@@ -635,19 +632,47 @@ __webpack_require__.r(__webpack_exports__);
 //         }
 //     });
 // }
-
 function toggle(el, classname, btnToggle) {
     const btnTogg = document.getElementById(btnToggle),
     element = document.querySelector(el);
-    
-          
-    btnTogg.addEventListener('click', () =>{
-        if(element.classList.contains(classname)){
-            element.classList.remove(classname);
-        } else {
-            element.classList.add(classname);
-        }
+    function toggleMenu() {
+        element.classList.toggle(classname);
+    }
+
+    btnTogg.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleMenu();
     });
+
+    document.addEventListener('click', (e) => {
+        const target = e.target,
+        myElement = target == element || element.contains(target),
+        myBtn = target == btnTogg ,
+        elementActive = element.classList.contains(classname);
+
+        if (!myElement && !myBtn && !elementActive) {
+            toggleMenu();
+        }
+
+    });
+
+    //----------------------------
+    // document.addEventListener('click', (e) => {
+    //     if(e.target === btnTogg && element.classList.contains(classname)) {
+    //         openModal(element);
+    //     } else {
+    //         closeModal(element);
+    //     }
+    // });
+
+    //--------------------------
+    // btnTogg.addEventListener('click', () =>{
+    //     if(element.classList.contains(classname)){
+    //         element.classList.remove(classname);
+    //     } else {
+    //         element.classList.add(classname);
+    //     }
+    // });
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (toggle);
@@ -799,7 +824,7 @@ document.addEventListener('DOMContentLoaded', () => {
         allSlides: '.all_slides' 
     });
     (0,_modules_toggle__WEBPACK_IMPORTED_MODULE_4__["default"])('#myDropdown', 'hide', 'btn_toggle'); 
-    (0,_modules_toggle__WEBPACK_IMPORTED_MODULE_4__["default"])('.inpSearch', 'hide', 'btn_search'); 
+    (0,_modules_toggle__WEBPACK_IMPORTED_MODULE_4__["default"])('#inpSearch_toggle', 'hide', 'btn_search'); 
     (0,_modules_toggle__WEBPACK_IMPORTED_MODULE_4__["default"])('#myDropdown_acc', 'hide', 'btn_toggle_acc'); 
     (0,_modules_calc__WEBPACK_IMPORTED_MODULE_0__["default"])();
     
