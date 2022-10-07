@@ -37,33 +37,36 @@ function calc() {
     initLocalSt('#gender div', 'calc_choose-item_active');
 
     function calcTotal() {
-        if(!sex || !chestGirth || !waistSize || !height) {
-            result.textContent = '?';
-            return;
-        }
-
-        if (sex === 'female') {
-            result.textContent = chestGirth + waistSize + height;
-            
-            if (result.textContent <= 290) { result.textContent = '?'; }
-            if (result.textContent <= 314) { result.textContent = 'XS'; }
-            if (result.textContent <= 324) { result.textContent = 'S'; }
-            if (result.textContent <= 336) { result.textContent = 'M'; }
-            if (result.textContent <= 351) { result.textContent = 'L'; }
-            if (result.textContent <= 366) { result.textContent = 'XL'; } 
-            if (result.textContent > 366) { result.textContent = 'XXL'; } 
-
-        } else {
-            result.textContent = chestGirth + waistSize + height;
-
-            if (result.textContent <= 300) { result.textContent = '?'; }
-            if (result.textContent <= 324) { result.textContent = 'S'; }
-            if (result.textContent <= 348) { result.textContent = 'M'; }
-            if (result.textContent <= 370) { result.textContent = 'L'; }
-            if (result.textContent <= 392) { result.textContent = 'XL'; }
-            if (result.textContent <= 418) { result.textContent = 'XXL'; } 
-            if (result.textContent > 418) { result.textContent = '3XL'; } 
-        }
+        
+            if(!sex || !chestGirth || !waistSize || !height) {
+                result.textContent = '?';
+                return;
+            }
+    
+            if (sex === 'female') {
+                result.textContent = chestGirth + waistSize + height;
+                
+                if (result.textContent <= 290) { result.textContent = '?'; }
+                if (result.textContent <= 314) { result.textContent = 'XS'; }
+                if (result.textContent <= 324) { result.textContent = 'S'; }
+                if (result.textContent <= 336) { result.textContent = 'M'; }
+                if (result.textContent <= 351) { result.textContent = 'L'; }
+                if (result.textContent <= 366) { result.textContent = 'XL'; } 
+                if (result.textContent > 366) { result.textContent = 'XXL'; } 
+    
+            } else {
+                result.textContent = chestGirth + waistSize + height;
+    
+                if (result.textContent <= 300) { result.textContent = '?'; }
+                if (result.textContent <= 324) { result.textContent = 'S'; }
+                if (result.textContent <= 348) { result.textContent = 'M'; }
+                if (result.textContent <= 370) { result.textContent = 'L'; }
+                if (result.textContent <= 392) { result.textContent = 'XL'; }
+                if (result.textContent <= 418) { result.textContent = 'XXL'; } 
+                if (result.textContent > 418) { result.textContent = '3XL'; } 
+            }
+        
+        
         
         
     }
@@ -93,8 +96,9 @@ function calc() {
     getStaticElements('#gender div', 'calc_choose-item_active');
 
     function getDinamicInfo(selector) {
-        const input = document.querySelector(selector);
         
+        const input = document.querySelector(selector);
+    
         input.addEventListener('input', () => {
             
             if (input.value.match(/\D/g)) {
@@ -125,6 +129,8 @@ function calc() {
             }
             calcTotal();
         });
+    
+        
     }
     getDinamicInfo('#chestGirth');
     getDinamicInfo('#waistSize');

@@ -51,33 +51,36 @@ function calc() {
     initLocalSt('#gender div', 'calc_choose-item_active');
 
     function calcTotal() {
-        if(!sex || !chestGirth || !waistSize || !height) {
-            result.textContent = '?';
-            return;
-        }
-
-        if (sex === 'female') {
-            result.textContent = chestGirth + waistSize + height;
-            
-            if (result.textContent <= 290) { result.textContent = '?'; }
-            if (result.textContent <= 314) { result.textContent = 'XS'; }
-            if (result.textContent <= 324) { result.textContent = 'S'; }
-            if (result.textContent <= 336) { result.textContent = 'M'; }
-            if (result.textContent <= 351) { result.textContent = 'L'; }
-            if (result.textContent <= 366) { result.textContent = 'XL'; } 
-            if (result.textContent > 366) { result.textContent = 'XXL'; } 
-
-        } else {
-            result.textContent = chestGirth + waistSize + height;
-
-            if (result.textContent <= 300) { result.textContent = '?'; }
-            if (result.textContent <= 324) { result.textContent = 'S'; }
-            if (result.textContent <= 348) { result.textContent = 'M'; }
-            if (result.textContent <= 370) { result.textContent = 'L'; }
-            if (result.textContent <= 392) { result.textContent = 'XL'; }
-            if (result.textContent <= 418) { result.textContent = 'XXL'; } 
-            if (result.textContent > 418) { result.textContent = '3XL'; } 
-        }
+        
+            if(!sex || !chestGirth || !waistSize || !height) {
+                result.textContent = '?';
+                return;
+            }
+    
+            if (sex === 'female') {
+                result.textContent = chestGirth + waistSize + height;
+                
+                if (result.textContent <= 290) { result.textContent = '?'; }
+                if (result.textContent <= 314) { result.textContent = 'XS'; }
+                if (result.textContent <= 324) { result.textContent = 'S'; }
+                if (result.textContent <= 336) { result.textContent = 'M'; }
+                if (result.textContent <= 351) { result.textContent = 'L'; }
+                if (result.textContent <= 366) { result.textContent = 'XL'; } 
+                if (result.textContent > 366) { result.textContent = 'XXL'; } 
+    
+            } else {
+                result.textContent = chestGirth + waistSize + height;
+    
+                if (result.textContent <= 300) { result.textContent = '?'; }
+                if (result.textContent <= 324) { result.textContent = 'S'; }
+                if (result.textContent <= 348) { result.textContent = 'M'; }
+                if (result.textContent <= 370) { result.textContent = 'L'; }
+                if (result.textContent <= 392) { result.textContent = 'XL'; }
+                if (result.textContent <= 418) { result.textContent = 'XXL'; } 
+                if (result.textContent > 418) { result.textContent = '3XL'; } 
+            }
+        
+        
         
         
     }
@@ -107,8 +110,9 @@ function calc() {
     getStaticElements('#gender div', 'calc_choose-item_active');
 
     function getDinamicInfo(selector) {
-        const input = document.querySelector(selector);
         
+        const input = document.querySelector(selector);
+    
         input.addEventListener('input', () => {
             
             if (input.value.match(/\D/g)) {
@@ -139,6 +143,8 @@ function calc() {
             }
             calcTotal();
         });
+    
+        
     }
     getDinamicInfo('#chestGirth');
     getDinamicInfo('#waistSize');
@@ -328,20 +334,140 @@ function modal(triggerSelector, modalSelector) {
             // document.body.style.overflow = 'hidden';
         });
     });
-
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal || e.target.getAttribute('data-close') == "") {
-            closeModal(modalSelector);
-            // modal.classList.add('hide');
-            // modal.classList.remove('show');
-            // document.body.style.overflow = '';
-        }
-    });
+    try {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal || e.target.getAttribute('data-close') == "") {
+                closeModal(modalSelector);
+                // modal.classList.add('hide');
+                // modal.classList.remove('show');
+                // document.body.style.overflow = '';
+            }
+        });
+    } catch (e) {
+        console.log(e);
+    }
+    
+    
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (modal);
 
 
+
+/***/ }),
+
+/***/ "./js/modules/scrollTo.js":
+/*!********************************!*\
+  !*** ./js/modules/scrollTo.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _calc__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./calc */ "./js/modules/calc.js");
+
+
+function scrollTo(button, element) {
+    const btn = document.querySelector(button),
+    el = document.querySelector(element);
+
+    btn.addEventListener('click', () => {
+        el.scrollIntoView({
+            block: 'start',
+            behavior: 'smooth'
+        });
+    });
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (scrollTo);
+
+/***/ }),
+
+/***/ "./js/modules/shop.js":
+/*!****************************!*\
+  !*** ./js/modules/shop.js ***!
+  \****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _services_services__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../services/services */ "./js/services/services.js");
+
+
+function shopCards() {
+
+    class shopCard {
+        constructor (src, alt, title, descr, price, parentSelector, ...classes){
+            this.src = src;
+            this.alt = alt;
+            this.title = title;
+            this.descr = descr;
+            this.price = price;
+            this.parent = document.querySelector(parentSelector);
+            this.classes = classes;
+            this.transfer = 0.88;
+            this.changeToGBR();
+        }
+    
+        changeToGBR() {
+            this.price = (this.price * this.transfer).toFixed(0);
+        }
+    
+        render() {
+            const element = document.createElement('div');
+            if (this.classes.length === 0) {
+                this.element = 'shop_item';
+                element.classList.add(this.element);
+            } else {
+                this.classes.forEach(className => element.classList.add(className));
+            }
+    
+            element.innerHTML = `
+                    <div class="img-shop"><img src = ${this.src} alt = ${this.alt}></div>
+                    <div class="fav-shop">
+                        <button type="submit" class="btn-fav-shop">
+                            <span class="icon-fav-shop"></span>
+                        </button>
+                    </div>
+                    <h3 class = "shop_title">${this.title}</h3>
+                    <div class = "shop_descr">${this.descr}</div>
+                    <div class="shop_price"><span>${this.price}</span> £</div>
+                </div>
+            `;
+            try {
+                this.parent.append(element);
+            } catch (e) {
+                
+            }
+            
+        }
+    }
+    try {
+        (0,_services_services__WEBPACK_IMPORTED_MODULE_0__.getResource)('http://localhost:3000/goods')
+        .then(data => {
+            data.forEach(({img, altimg, title, descr, price}) => {
+                new shopCard(img, altimg, title, descr, price, '.shop .container').render();
+            });
+        });
+    } catch (e) {
+               
+    }
+    
+
+    fetch('http://localhost:3000/goods')
+    .then(data => data.json())
+    .then (res => console.log(res));
+
+    
+    
+    
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (shopCards);
 
 /***/ }),
 
@@ -494,7 +620,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _modal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modal */ "./js/modules/modal.js");
+
+
 //---------- FUNCTION TOGGLE -----------
+
+// function closeToggle(el, btnToggle) {
+//     const btnTogg = document.getElementById(btnToggle),
+//     element = document.querySelector(el);
+
+//     document.addEventListener('click', (e) => {
+//         if (e.target != btnTogg) {
+//             element.classList.add('hide');
+//         }
+//     });
+// }
 
 function toggle(el, classname, btnToggle) {
     const btnTogg = document.getElementById(btnToggle),
@@ -547,7 +687,7 @@ const postData = async (url, data) => {
 
 //     return await res.json();
 // };
-async function getResource(url) {
+const getResource = async (url) => {
     let res = await fetch (url);
 
     if (!res.ok) {
@@ -555,7 +695,7 @@ async function getResource(url) {
     }
 
     return await res.json();
-}
+};
 
 
 
@@ -630,6 +770,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_modal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/modal */ "./js/modules/modal.js");
 /* harmony import */ var _modules_slider__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/slider */ "./js/modules/slider.js");
 /* harmony import */ var _modules_toggle__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/toggle */ "./js/modules/toggle.js");
+/* harmony import */ var _modules_shop__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/shop */ "./js/modules/shop.js");
+/* harmony import */ var _modules_scrollTo__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/scrollTo */ "./js/modules/scrollTo.js");
+
+
 
 
 
@@ -640,7 +784,10 @@ __webpack_require__.r(__webpack_exports__);
 
 document.addEventListener('DOMContentLoaded', () => {
         
-    (0,_modules_calc__WEBPACK_IMPORTED_MODULE_0__["default"])();
+    
+    (0,_modules_shop__WEBPACK_IMPORTED_MODULE_5__["default"])();
+    (0,_modules_scrollTo__WEBPACK_IMPORTED_MODULE_6__["default"])('.btnToGallery', '#diviGallery');
+    (0,_modules_scrollTo__WEBPACK_IMPORTED_MODULE_6__["default"])('.btnToCalc', '#diviCalc');
     (0,_modules_forms__WEBPACK_IMPORTED_MODULE_1__["default"])('form');
     (0,_modules_modal__WEBPACK_IMPORTED_MODULE_2__["default"])('[data-modal]', '.modal', '.modalWindow');
     (0,_modules_slider__WEBPACK_IMPORTED_MODULE_3__["default"])({
@@ -653,6 +800,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     (0,_modules_toggle__WEBPACK_IMPORTED_MODULE_4__["default"])('#myDropdown', 'hide', 'btn_toggle'); 
     (0,_modules_toggle__WEBPACK_IMPORTED_MODULE_4__["default"])('.inpSearch', 'hide', 'btn_search'); 
+    (0,_modules_toggle__WEBPACK_IMPORTED_MODULE_4__["default"])('#myDropdown_acc', 'hide', 'btn_toggle_acc'); 
+    (0,_modules_calc__WEBPACK_IMPORTED_MODULE_0__["default"])();
     
 
     

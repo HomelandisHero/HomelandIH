@@ -24,7 +24,8 @@
                 <div class="headCentre">
                     <nav class="headCentreLinks">
                         <a href="shop.html">Shop</a>
-                        <a href="#">Gallery</a>
+                        <div class="btnToGallery">Gallery</div>
+                        <div class="btnToCalc">Your size</div>
                         <a href="contact.html" class="btnCntct">Contact us</a>
                     </nav>
 
@@ -39,7 +40,14 @@
     
                         <ul class="centreButtons">
                             <il class="icons_h_c">
-                                <a href="#"><i class="icAcc"></i></a>
+                                <div class="icon_account">
+                                    <button id="btn_toggle_acc" type="submit" class="btn_acc"><span class="icAcc"></span></button>
+                                    <div id="myDropdown_acc" class="dropdown_acc-content hide">
+                                        <div data-modalSng class="btnSign">Sign up</div>
+                                        <div data-modal class="btnLog">Log in</div>
+                                    </div>
+                                </div>
+                                <!-- <a href="#"><i class="icAcc"></i></a> -->
                             </il>
                             <il class="icons_h_c">
                                 <a href="#"><i class="icFav"></i></a>
@@ -60,14 +68,7 @@
                             
                         </ul>
                 </div>
-
-                <div class="stripV"></div>
-                
-                <div class="conorButtons">
-                    <button data-modalSng class="btnSign shadowOne">Sign up</button>
-                    <button data-modal class="btnLog shadowOne">Log in</button>
-                </div>
-
+            
             </div>
 
         </header>
@@ -81,7 +82,7 @@
             <div class="soc_media_divider"></div>
         </div>
 
-        <div class="container">
+        <div id="head_container" class="container">
             <!-- <div class="divCentre"> -->
                 <div class="leftCentre">
                     <div class="mainImg">
@@ -105,7 +106,7 @@
             <!-- </div> -->
         </div>
     
-        <div class="divider"></div>
+        <div id="diviGallery" class="divider"></div>
 
         <div class="modal">
             <div class="modalWindow">
@@ -200,7 +201,7 @@
             </div>
         </div>
 
-        <div class="divider"></div>
+        <div id="diviCalc" class="divider"></div>
 
         <div class="calc_of_size">
             <div class="title_page">Calculate your size</div>
