@@ -1,4 +1,5 @@
 import { getResource } from "../services/services";
+import toggle from "./toggle";
 
 function shopCards() {
 
@@ -68,5 +69,20 @@ function shopCards() {
     
     
 }
+
+
+// function sizeItems() {
+//     const cards = document.querySelectorAll('.shop_item'),
+//           width = window.getComputedStyle(cards).width;
+
+//     cards.forEach((e) => {
+//         if (e.style.width <= '250px') {
+//             e.style.width = width;
+//         } else {
+//             e.style.width = width;
+//         }
+//     });
+// }
+// sizeItems();
 
 export default shopCards;
