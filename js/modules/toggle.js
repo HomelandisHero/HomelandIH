@@ -11,29 +11,31 @@
 //     });
 // }
 function toggle(el, classname, btnToggle) {
-    const btnTogg = document.getElementById(btnToggle),
-    element = document.querySelector(el);
-    function toggleMenu() {
-        element.classList.toggle(classname);
-    }
-
-    btnTogg.addEventListener('click', (e) => {
-        e.stopPropagation();
-        toggleMenu();
-    });
-
-    document.addEventListener('click', (e) => {
-        const target = e.target,
-        myElement = target == element || element.contains(target),
-        myBtn = target == btnTogg ,
-        elementActive = element.classList.contains(classname);
-
-        if (!myElement && !myBtn && !elementActive) {
-            toggleMenu();
+    try {
+        const btnTogg = document.getElementById(btnToggle),
+        element = document.querySelector(el);
+        function toggleMenu() {
+            element.classList.toggle(classname);
         }
 
-    });
+        btnTogg.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleMenu();
+        });
+    
+    
+        document.addEventListener('click', (e) => {
+            const target = e.target,
+            myElement = target == element || element.contains(target),
+            myBtn = target == btnTogg ,
+            elementActive = element.classList.contains(classname);
 
+            if (!myElement && !myBtn && !elementActive) {
+                toggleMenu();
+            }
+
+        });
+    } catch (e) {}
     //----------------------------
     // document.addEventListener('click', (e) => {
     //     if(e.target === btnTogg && element.classList.contains(classname)) {

@@ -396,6 +396,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _services_services__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../services/services */ "./js/services/services.js");
+/* harmony import */ var _toggle__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./toggle */ "./js/modules/toggle.js");
+
 
 
 function shopCards() {
@@ -466,6 +468,21 @@ function shopCards() {
     
     
 }
+
+
+// function sizeItems() {
+//     const cards = document.querySelectorAll('.shop_item'),
+//           width = window.getComputedStyle(cards).width;
+
+//     cards.forEach((e) => {
+//         if (e.style.width <= '250px') {
+//             e.style.width = width;
+//         } else {
+//             e.style.width = width;
+//         }
+//     });
+// }
+// sizeItems();
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (shopCards);
 
@@ -634,29 +651,31 @@ __webpack_require__.r(__webpack_exports__);
 //     });
 // }
 function toggle(el, classname, btnToggle) {
-    const btnTogg = document.getElementById(btnToggle),
-    element = document.querySelector(el);
-    function toggleMenu() {
-        element.classList.toggle(classname);
-    }
-
-    btnTogg.addEventListener('click', (e) => {
-        e.stopPropagation();
-        toggleMenu();
-    });
-
-    document.addEventListener('click', (e) => {
-        const target = e.target,
-        myElement = target == element || element.contains(target),
-        myBtn = target == btnTogg ,
-        elementActive = element.classList.contains(classname);
-
-        if (!myElement && !myBtn && !elementActive) {
-            toggleMenu();
+    try {
+        const btnTogg = document.getElementById(btnToggle),
+        element = document.querySelector(el);
+        function toggleMenu() {
+            element.classList.toggle(classname);
         }
 
-    });
+        btnTogg.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleMenu();
+        });
+    
+    
+        document.addEventListener('click', (e) => {
+            const target = e.target,
+            myElement = target == element || element.contains(target),
+            myBtn = target == btnTogg ,
+            elementActive = element.classList.contains(classname);
 
+            if (!myElement && !myBtn && !elementActive) {
+                toggleMenu();
+            }
+
+        });
+    } catch (e) {}
     //----------------------------
     // document.addEventListener('click', (e) => {
     //     if(e.target === btnTogg && element.classList.contains(classname)) {
@@ -812,6 +831,9 @@ document.addEventListener('DOMContentLoaded', () => {
         
     
     (0,_modules_shop__WEBPACK_IMPORTED_MODULE_5__["default"])();
+    (0,_modules_toggle__WEBPACK_IMPORTED_MODULE_4__["default"])('#dropdownGen', 'hide', 'toggle_btn_gender');
+    (0,_modules_toggle__WEBPACK_IMPORTED_MODULE_4__["default"])('#dropdownSize', 'hide', 'toggle_btn_size');
+    (0,_modules_toggle__WEBPACK_IMPORTED_MODULE_4__["default"])('#dropdownPrice', 'hide', 'toggle_btn_price');
     (0,_modules_scrollTo__WEBPACK_IMPORTED_MODULE_6__["default"])('.btnToGallery', '#diviGallery');
     (0,_modules_scrollTo__WEBPACK_IMPORTED_MODULE_6__["default"])('.btnToCalc', '#diviCalc');
     (0,_modules_forms__WEBPACK_IMPORTED_MODULE_1__["default"])('form');
@@ -827,7 +849,12 @@ document.addEventListener('DOMContentLoaded', () => {
     (0,_modules_toggle__WEBPACK_IMPORTED_MODULE_4__["default"])('#myDropdown', 'hide', 'btn_toggle'); 
     (0,_modules_toggle__WEBPACK_IMPORTED_MODULE_4__["default"])('#inpSearch_toggle', 'hide', 'btn_search'); 
     (0,_modules_toggle__WEBPACK_IMPORTED_MODULE_4__["default"])('#myDropdown_acc', 'hide', 'btn_toggle_acc'); 
+    
     (0,_modules_calc__WEBPACK_IMPORTED_MODULE_0__["default"])();
+    
+    
+    
+    
     
 
     
