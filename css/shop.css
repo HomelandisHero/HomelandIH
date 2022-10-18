@@ -236,14 +236,22 @@ input[type="number"]:focus {
 }
 .btn-fav-shop:hover {
     transition-duration: 0.15s;
-    transform: scale(0.93);
+    /* transform: scale(0.93); */
+
+
 }
 .icon-fav-shop {
-    content: url(/MyPractic/img/icons/heart.png);
+    content: url(/MyPractic/img/icons/fav.svg);
     width: 100%;
     padding: 5px 5px 3px 5px;
     align-items: center;
     
+}
+.icon-fav-shop_black {
+    content: url(/MyPractic/img/icons/fav_black.svg);
+    width: 100%;
+    padding: 5px 5px 3px 5px;
+    align-items: center;
 }
 
 .shop_title {

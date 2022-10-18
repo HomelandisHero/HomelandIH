@@ -113,6 +113,7 @@ body {
 
 .icSrch {
     content: url(/MyPractic/img/icons/search.svg);
+    background-color: #fbfbfb;
 }
 
 .centreButtons {
@@ -158,6 +159,10 @@ body {
 
 .icFav {
     content: url(/MyPractic/img/icons/fav.svg);
+    width: 22px;
+}
+.icFav_black{
+    content: url(/MyPractic/img/icons/fav_black4.svg);
     width: 22px;
 }
 .icon_language {

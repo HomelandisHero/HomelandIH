@@ -12,6 +12,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _checkNumInputs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./checkNumInputs */ "./js/modules/checkNumInputs.js");
+
+
 function calc() {
 
     //-----------CALC---------------
@@ -20,6 +23,10 @@ function calc() {
           inputs = document.querySelectorAll('.calc_choose_item');
     let sex, chestGirth, waistSize, height;
 
+    (0,_checkNumInputs__WEBPACK_IMPORTED_MODULE_0__["default"])('#chestGirth');
+    (0,_checkNumInputs__WEBPACK_IMPORTED_MODULE_0__["default"])('#waistSize');
+    (0,_checkNumInputs__WEBPACK_IMPORTED_MODULE_0__["default"])('#height');
+    
     inputs.forEach(elem => {
         elem.onmouseover = function() {
             elem.style.border = '1px solid #1717176a';
@@ -85,7 +92,7 @@ function calc() {
         
     }
     calcTotal();
-
+    
     function getStaticElements(selector, activeClass) {
         const elements = document.querySelectorAll(selector);
 
@@ -108,6 +115,8 @@ function calc() {
 
     }
     getStaticElements('#gender div', 'calc_choose-item_active');
+
+    
 
     function getDinamicInfo(selector) {
         
@@ -152,6 +161,107 @@ function calc() {
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (calc);
+
+/***/ }),
+
+/***/ "./js/modules/changeState.js":
+/*!***********************************!*\
+  !*** ./js/modules/changeState.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function changeState(element, secondElement, activeClass) {
+    
+    let firstIcons = [];
+    let secondIcons = [];
+   
+    const firstIcon = document.querySelectorAll(element),
+          secondIcon = document.querySelectorAll(secondElement);
+        
+        
+          
+    [].forEach.call(firstIcon, function (first, second) {
+        first.addEventListener('mouseenter', function() {
+            firstIcon[second].classList.add(activeClass);
+            secondIcon[second].classList.remove(activeClass);
+        });
+        [].forEach.call(secondIcon, function(firstt, secondd) {
+            firstt.addEventListener('mouseleave', function() {
+                secondIcon[secondd].classList.add(activeClass);
+                firstIcon[secondd].classList.remove(activeClass);
+                // secondIcon[second].classList.add(activeClass);
+                // secondIcon[second].classList.remove(activeClass);
+            });
+        }); 
+        
+    });
+
+    
+    // const first = [...document.querySelectorAll(element)],
+    //       second = [...document.querySelectorAll(secondElement)];
+  
+    // const updateClass = action => e => {
+    //     const index = first.indexOf(e.target);
+    //     if (index !== -1) {
+    //         second[index].classList[action](activeClass);
+    //     }
+    // };
+  
+    // document.querySelector(element).addEventListener('mouseenter', updateClass('add'));
+    // document.querySelector(element).addEventListener('mouseleave', updateClass('remove'));
+
+
+
+    // firstIcon.forEach(item => {
+    //     item.addEventListener('mouseenter', () => { 
+    //         item.classList.add(activeClass);
+    //         secondIcon.forEach(i => {
+    //             i.classList.remove(activeClass);
+
+    //             i.addEventListener('mouseleave', () => {
+    //                 i.classList.add(activeClass);
+    //                 item.classList.remove(activeClass);
+    //             });
+    //         });
+
+    //     });
+        
+    // });
+
+
+    
+    
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (changeState);
+
+/***/ }),
+
+/***/ "./js/modules/checkNumInputs.js":
+/*!**************************************!*\
+  !*** ./js/modules/checkNumInputs.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+const checkNumInputs = (selector) => {
+    const numInput = document.querySelectorAll(selector);
+
+    numInput.forEach(item => {
+        item.addEventListener('input', () =>{
+            item.value = item.value.replace(/\D/, '');
+        });
+    });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (checkNumInputs);
 
 /***/ }),
 
@@ -396,7 +506,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _services_services__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../services/services */ "./js/services/services.js");
-/* harmony import */ var _toggle__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./toggle */ "./js/modules/toggle.js");
+/* harmony import */ var _changeState__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./changeState */ "./js/modules/changeState.js");
 
 
 
@@ -433,6 +543,7 @@ function shopCards() {
                     <div class="fav-shop">
                         <button type="submit" class="btn-fav-shop">
                             <span class="icon-fav-shop"></span>
+                            <span class="icon-fav-shop_black hide"></span>
                         </button>
                     </div>
                     <h3 class = "shop_title">${this.title}</h3>
@@ -445,7 +556,7 @@ function shopCards() {
             } catch (e) {
                 
             }
-            
+            (0,_changeState__WEBPACK_IMPORTED_MODULE_1__["default"])('.icon-fav-shop', '.icon-fav-shop_black', 'hide');
         }
     }
     try {
@@ -635,9 +746,9 @@ function slider({container, slide, prevArrow, nextArrow, wrapper, allSlides}) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
-/* harmony export */   "toggle": () => (/* binding */ toggle)
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _checkNumInputs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./checkNumInputs */ "./js/modules/checkNumInputs.js");
 //---------- FUNCTION TOGGLE -----------
 
 // function closeToggle(el, btnToggle) {
@@ -650,13 +761,19 @@ __webpack_require__.r(__webpack_exports__);
 //         }
 //     });
 // }
-function toggle(el, classname, btnToggle) {
+
+
+const toggle = (el, classname, btnToggle, inputValue) => {
     try {
         const btnTogg = document.getElementById(btnToggle),
-        element = document.querySelector(el);
-        function toggleMenu() {
+        element = document.querySelector(el),
+        dropdown = document.querySelectorAll('.dropdown_content');
+        
+        (0,_checkNumInputs__WEBPACK_IMPORTED_MODULE_0__["default"])(inputValue);
+        
+        const toggleMenu = () => {
             element.classList.toggle(classname);
-        }
+        };
 
         btnTogg.addEventListener('click', (e) => {
             e.stopPropagation();
@@ -665,6 +782,7 @@ function toggle(el, classname, btnToggle) {
     
     
         document.addEventListener('click', (e) => {
+        
             const target = e.target,
             myElement = target == element || element.contains(target),
             myBtn = target == btnTogg ,
@@ -693,7 +811,7 @@ function toggle(el, classname, btnToggle) {
     //         element.classList.add(classname);
     //     }
     // });
-}
+};
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (toggle);
 
@@ -817,6 +935,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_toggle__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/toggle */ "./js/modules/toggle.js");
 /* harmony import */ var _modules_shop__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/shop */ "./js/modules/shop.js");
 /* harmony import */ var _modules_scrollTo__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/scrollTo */ "./js/modules/scrollTo.js");
+/* harmony import */ var _modules_changeState__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/changeState */ "./js/modules/changeState.js");
+
 
 
 
@@ -833,7 +953,7 @@ document.addEventListener('DOMContentLoaded', () => {
     (0,_modules_shop__WEBPACK_IMPORTED_MODULE_5__["default"])();
     (0,_modules_toggle__WEBPACK_IMPORTED_MODULE_4__["default"])('#dropdownGen', 'hide', 'toggle_btn_gender');
     (0,_modules_toggle__WEBPACK_IMPORTED_MODULE_4__["default"])('#dropdownSize', 'hide', 'toggle_btn_size');
-    (0,_modules_toggle__WEBPACK_IMPORTED_MODULE_4__["default"])('#dropdownPrice', 'hide', 'toggle_btn_price');
+    (0,_modules_toggle__WEBPACK_IMPORTED_MODULE_4__["default"])('#dropdownPrice', 'hide', 'toggle_btn_price', '.value_of_prices');
     (0,_modules_scrollTo__WEBPACK_IMPORTED_MODULE_6__["default"])('.btnToGallery', '#diviGallery');
     (0,_modules_scrollTo__WEBPACK_IMPORTED_MODULE_6__["default"])('.btnToCalc', '#diviCalc');
     (0,_modules_forms__WEBPACK_IMPORTED_MODULE_1__["default"])('form');
@@ -849,8 +969,11 @@ document.addEventListener('DOMContentLoaded', () => {
     (0,_modules_toggle__WEBPACK_IMPORTED_MODULE_4__["default"])('#myDropdown', 'hide', 'btn_toggle'); 
     (0,_modules_toggle__WEBPACK_IMPORTED_MODULE_4__["default"])('#inpSearch_toggle', 'hide', 'btn_search'); 
     (0,_modules_toggle__WEBPACK_IMPORTED_MODULE_4__["default"])('#myDropdown_acc', 'hide', 'btn_toggle_acc'); 
-    
     (0,_modules_calc__WEBPACK_IMPORTED_MODULE_0__["default"])();
+    (0,_modules_changeState__WEBPACK_IMPORTED_MODULE_7__["default"])('.icFav', '.icFav_black', 'hide');
+    (0,_modules_changeState__WEBPACK_IMPORTED_MODULE_7__["default"])('.icon-fav-shop', '.icon-fav-shop_black', 'hide');
+    
+    
     
     
     

@@ -7,6 +7,7 @@ import slider from './modules/slider';
 import toggle from './modules/toggle';
 import shopCards from './modules/shop';
 import scrollTo from './modules/scrollTo';
+import changeState from './modules/changeState';
 
 document.addEventListener('DOMContentLoaded', () => {
         
@@ -14,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     shopCards();
     toggle('#dropdownGen', 'hide', 'toggle_btn_gender');
     toggle('#dropdownSize', 'hide', 'toggle_btn_size');
-    toggle('#dropdownPrice', 'hide', 'toggle_btn_price');
+    toggle('#dropdownPrice', 'hide', 'toggle_btn_price', '.value_of_prices');
     scrollTo('.btnToGallery', '#diviGallery');
     scrollTo('.btnToCalc', '#diviCalc');
     forms('form');
@@ -30,8 +31,11 @@ document.addEventListener('DOMContentLoaded', () => {
     toggle('#myDropdown', 'hide', 'btn_toggle'); 
     toggle('#inpSearch_toggle', 'hide', 'btn_search'); 
     toggle('#myDropdown_acc', 'hide', 'btn_toggle_acc'); 
-    
     calc();
+    changeState('.icFav', '.icFav_black', 'hide');
+    changeState('.icon-fav-shop', '.icon-fav-shop_black', 'hide');
+    
+    
     
     
     
