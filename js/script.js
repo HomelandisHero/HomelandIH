@@ -8,6 +8,7 @@ import toggle from './modules/toggle';
 import shopCards from './modules/shop';
 import scrollTo from './modules/scrollTo';
 import changeState from './modules/changeState';
+import searchElements from './modules/searchElements';
 
 document.addEventListener('DOMContentLoaded', () => {
         
@@ -31,9 +32,13 @@ document.addEventListener('DOMContentLoaded', () => {
     toggle('#myDropdown', 'hide', 'btn_toggle'); 
     toggle('#inpSearch_toggle', 'hide', 'btn_search'); 
     toggle('#myDropdown_acc', 'hide', 'btn_toggle_acc'); 
+    
     calc();
     changeState('.icFav', '.icFav_black', 'hide');
     changeState('.icon-fav-shop', '.icon-fav-shop_black', 'hide');
+    
+    
+    
     
     
     

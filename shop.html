@@ -11,6 +11,8 @@
 </head>
 <body>
     <div class="return-link"><a href="index.html">Return to previous page</a></div>
+    
+    
 
     <div class="shop">
 
@@ -24,11 +26,21 @@
         </div>
 
         <h2 class="title">Shop</h2>
+
+        <div class="searchShop">
+            <div class="search_box">
+                <input type="text" placeholder="Search..." name="search" id="inp_search" class="input_search">
+                <button type="submit" class="search_button">
+                    <span class="srchBtn"></span>
+                </button>
+            </div>
+        </div>
+
         <div class="shopField">
             <div class="shop_left">
                 <div class="filters_page">
                     <div id="gender" class="each_filter">
-                        <div id="toggle_btn_gender" class="togg_btns_filters">Gender</div>
+                        <div id="toggle_btn_gender" class="togg_btns_filters">GENDER</div>
                         <dl id="dropdownGen" class="dropdown_content hide">
                             <dt>
                                 <input type="checkbox" id="male" name="male">
@@ -41,7 +53,7 @@
                         </dl>
                     </div>
                     <div id="size_filter" class="each_filter">
-                        <div id="toggle_btn_size" type="submit" class="togg_btns_filters">Size</div>
+                        <div id="toggle_btn_size" type="submit" class="togg_btns_filters">SIZE</div>
                         <dl id="dropdownSize" class="dropdown_content hide">
                            <dt> 
                                <input type="checkbox" id="xs" name="xs">
@@ -80,7 +92,7 @@
                         </dl>
                     </div>
                     <div id="price" class="each_filter">
-                        <div id="toggle_btn_price" type="submit" class="togg_btns_filters">Price</div>
+                        <div id="toggle_btn_price" type="submit" class="togg_btns_filters">PRICE</div>
                         <div id="dropdownPrice" class="dropdown_content hide">
                             <div class="windows_prices">
                                 <div class="prices_box">
@@ -106,11 +118,11 @@
             </div>
             
             <div class="shop_right">
-                <div class="container">
-
+                <div id="shop_right_container" class="container">
+                    
                 </div>
             </div>
-            
+            <div class="fail_block"><p>Oops... Try again</p></div>
         </div>
         
     </div>

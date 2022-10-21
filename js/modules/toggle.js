@@ -10,13 +10,18 @@
 //         }
 //     });
 // }
-function toggle(el, classname, btnToggle) {
+import checkNumInputs from "./checkNumInputs";
+
+const toggle = (el, classname, btnToggle, inputValue) => {
     try {
         const btnTogg = document.getElementById(btnToggle),
         element = document.querySelector(el);
-        function toggleMenu() {
+        
+        checkNumInputs(inputValue);
+        
+        const toggleMenu = () => {
             element.classList.toggle(classname);
-        }
+        };
 
         btnTogg.addEventListener('click', (e) => {
             e.stopPropagation();
@@ -25,6 +30,7 @@ function toggle(el, classname, btnToggle) {
     
     
         document.addEventListener('click', (e) => {
+        
             const target = e.target,
             myElement = target == element || element.contains(target),
             myBtn = target == btnTogg ,
@@ -53,6 +59,16 @@ function toggle(el, classname, btnToggle) {
     //         element.classList.add(classname);
     //     }
     // });
+};
+
+function searchAnim (element, input, button) {
+    const el = document.querySelector(element),
+    inp = document.querySelector(input),
+    btn = document.querySelector(button);
+
+
 }
-export {toggle};
+
+
+
 export default toggle;

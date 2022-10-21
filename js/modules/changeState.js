@@ -5,24 +5,36 @@ function changeState(element, secondElement, activeClass) {
    
     const firstIcon = document.querySelectorAll(element),
           secondIcon = document.querySelectorAll(secondElement);
-        
-        
-          
-    [].forEach.call(firstIcon, function (first, second) {
-        first.addEventListener('mouseenter', function() {
-            firstIcon[second].classList.add(activeClass);
-            secondIcon[second].classList.remove(activeClass);
-        });
-        [].forEach.call(secondIcon, function(firstt, secondd) {
-            firstt.addEventListener('mouseleave', function() {
-                secondIcon[secondd].classList.add(activeClass);
-                firstIcon[secondd].classList.remove(activeClass);
-                // secondIcon[second].classList.add(activeClass);
-                // secondIcon[second].classList.remove(activeClass);
-            });
-        }); 
-        
+
+    firstIcon.forEach((element, id) => {
+        element.addEventListener('mouseenter', function() {
+            firstIcon[id].classList.add(activeClass);
+            secondIcon[id].classList.remove(activeClass);
+        });        
     });
+    secondIcon.forEach((element, id) => {
+        element.addEventListener('mouseleave', function() {
+            secondIcon[id].classList.add(activeClass);
+            firstIcon[id].classList.remove(activeClass);
+        });
+    }); 
+
+    secondIcon.forEach((element, id) => {
+        element.addEventListener('mousedown', function() {
+            secondIcon[id].style.transition = '0.1s';
+            secondIcon[id].style.transform = 'scale(0.9)';
+        });
+        element.addEventListener('mouseup', () => {
+            secondIcon[id].style.transition = '0.1s';
+            secondIcon[id].style.transform = '';
+            
+        });
+    });
+
+
+
+
+    
 
     
     // const first = [...document.querySelectorAll(element)],
@@ -37,24 +49,6 @@ function changeState(element, secondElement, activeClass) {
   
     // document.querySelector(element).addEventListener('mouseenter', updateClass('add'));
     // document.querySelector(element).addEventListener('mouseleave', updateClass('remove'));
-
-
-
-    // firstIcon.forEach(item => {
-    //     item.addEventListener('mouseenter', () => { 
-    //         item.classList.add(activeClass);
-    //         secondIcon.forEach(i => {
-    //             i.classList.remove(activeClass);
-
-    //             i.addEventListener('mouseleave', () => {
-    //                 i.classList.add(activeClass);
-    //                 item.classList.remove(activeClass);
-    //             });
-    //         });
-
-    //     });
-        
-    // });
 
 
     

@@ -1,4 +1,6 @@
 import { getResource } from "../services/services";
+import changeState from "./changeState";
+import searchElements from "./searchElements";
 import toggle from "./toggle";
 
 function shopCards() {
@@ -34,10 +36,13 @@ function shopCards() {
                     <div class="fav-shop">
                         <button type="submit" class="btn-fav-shop">
                             <span class="icon-fav-shop"></span>
+                            <span class="icon-fav-shop_black hide"></span>
                         </button>
                     </div>
-                    <h3 class = "shop_title">${this.title}</h3>
-                    <div class = "shop_descr">${this.descr}</div>
+                    <div id="full_descr">
+                        <div id="title_descr" class = "shop_descr"><p>${this.title}</p></div>
+                        <div id="item_descr" class = "shop_descr"><p>${this.descr}</p></div>
+                    </div>
                     <div class="shop_price"><span>${this.price}</span> £</div>
                 </div>
             `;
@@ -46,7 +51,8 @@ function shopCards() {
             } catch (e) {
                 
             }
-            
+            changeState('.icon-fav-shop', '.icon-fav-shop_black', 'hide');
+            searchElements('.input_search', '.shop_item', '.fail_block');
         }
     }
     try {
@@ -56,10 +62,12 @@ function shopCards() {
                 new shopCard(img, altimg, title, descr, price, '.shop .container').render();
             });
         });
+       
+        
     } catch (e) {
                
     }
-    
+    toggle('#inp_search', 'hide', '.search_button');
 
     fetch('http://localhost:3000/goods')
     .then(data => data.json())
