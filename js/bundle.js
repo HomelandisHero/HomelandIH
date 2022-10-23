@@ -181,24 +181,36 @@ function changeState(element, secondElement, activeClass) {
    
     const firstIcon = document.querySelectorAll(element),
           secondIcon = document.querySelectorAll(secondElement);
-        
-        
-          
-    [].forEach.call(firstIcon, function (first, second) {
-        first.addEventListener('mouseenter', function() {
-            firstIcon[second].classList.add(activeClass);
-            secondIcon[second].classList.remove(activeClass);
-        });
-        [].forEach.call(secondIcon, function(firstt, secondd) {
-            firstt.addEventListener('mouseleave', function() {
-                secondIcon[secondd].classList.add(activeClass);
-                firstIcon[secondd].classList.remove(activeClass);
-                // secondIcon[second].classList.add(activeClass);
-                // secondIcon[second].classList.remove(activeClass);
-            });
-        }); 
-        
+
+    firstIcon.forEach((element, id) => {
+        element.addEventListener('mouseenter', function() {
+            firstIcon[id].classList.add(activeClass);
+            secondIcon[id].classList.remove(activeClass);
+        });        
     });
+    secondIcon.forEach((element, id) => {
+        element.addEventListener('mouseleave', function() {
+            secondIcon[id].classList.add(activeClass);
+            firstIcon[id].classList.remove(activeClass);
+        });
+    }); 
+
+    secondIcon.forEach((element, id) => {
+        element.addEventListener('mousedown', function() {
+            secondIcon[id].style.transition = '0.1s';
+            secondIcon[id].style.transform = 'scale(0.9)';
+        });
+        element.addEventListener('mouseup', () => {
+            secondIcon[id].style.transition = '0.1s';
+            secondIcon[id].style.transform = '';
+            
+        });
+    });
+
+
+
+
+    
 
     
     // const first = [...document.querySelectorAll(element)],
@@ -213,24 +225,6 @@ function changeState(element, secondElement, activeClass) {
   
     // document.querySelector(element).addEventListener('mouseenter', updateClass('add'));
     // document.querySelector(element).addEventListener('mouseleave', updateClass('remove'));
-
-
-
-    // firstIcon.forEach(item => {
-    //     item.addEventListener('mouseenter', () => { 
-    //         item.classList.add(activeClass);
-    //         secondIcon.forEach(i => {
-    //             i.classList.remove(activeClass);
-
-    //             i.addEventListener('mouseleave', () => {
-    //                 i.classList.add(activeClass);
-    //                 item.classList.remove(activeClass);
-    //             });
-    //         });
-
-    //     });
-        
-    // });
 
 
     
@@ -495,6 +489,100 @@ function scrollTo(button, element) {
 
 /***/ }),
 
+/***/ "./js/modules/searchElements.js":
+/*!**************************************!*\
+  !*** ./js/modules/searchElements.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function searchElements(input, searchZone, failClass) {
+    const inp = document.querySelector(input),
+          zone = document.querySelectorAll(searchZone),
+          fail = document.querySelector(failClass);
+    
+    try {
+        inp.oninput = function() {
+
+            let val = this.value.trim(); //----Користувач може вводити з пробелами (по боках) і ми іх обрізаємо
+            // let val = this.value.replace(/ /g, ''); //----- видаляє в цілому всі пробели
+            let valUp = val.toUpperCase();
+
+            
+    
+            if (valUp != '') {
+                zone.forEach(function(elem) {
+                    if (elem.innerText.search(valUp) == -1) {  //----Шукаємо підстроку в строке, а INNERTEXT знаходить ТОЛЬКО текст БЕЗ html тегов
+                        elem.classList.add('hide');
+                        
+                        // elem.innerHTML = elem.innerText;
+                        
+                        
+                        let valSearch = elem.innerText.search(valUp);
+                        console.log(valSearch);
+                        
+                       
+    
+                        //     const failBlock = document.createElement('div');
+                        //     failBlock.classList.add('fail_block');
+                        //     failBlock.textContent = 'Ops... Try again';
+                        //     failBlock.style.cssText = `
+                        //         width: calc( 33% - 7.5px);
+                        //         min-width: 200px;
+                        //         font-size: 100%;
+                        //         letter-spacing: 0.5px;
+                        //         background-color: #fefefe;
+                        //         color: #171717ad;
+                        //         margin: 5px 5px 5px 5px;
+                        //         border-radius: 4px;
+                        //     `;
+    
+                        //     appPlace.append(failBlock);
+                        // } 
+                        
+                        
+                    }
+                    else {
+                        elem.classList.remove('hide');
+                        // let str = elem.innerText;
+                        // elem.innerHTML = inserMark(str, valSearch, val.length); //---- ПЕРЕЗАПИСУЮ складаюче елемента з урахуванням нового тегу "НИЖЧЕ"
+                    }
+                    
+    
+                    
+                    
+                });
+    
+            }
+            else {
+                zone.forEach(function(elem) {
+                    elem.classList.remove('hide');
+                    // elem.innerHTML = elem.innerText;
+                });
+    
+                
+    
+            }
+    
+            // //---- Функція для ВИДІЛЕННЯ найдених букв
+            // function inserMark(str, pos, len) { //---- "str" - наша строка, тектст який ми вводимо, "pos" -  позиція по буквах перед виділеням, "len" - кількість букв.
+            //     return str.slice(0, pos) + '<mark>' + str.slice(pos, pos + len) + '</mark>' + str.slice(pos + len);
+    
+    
+            // }
+        };
+    } catch (error) {}
+    
+
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (searchElements);
+
+/***/ }),
+
 /***/ "./js/modules/shop.js":
 /*!****************************!*\
   !*** ./js/modules/shop.js ***!
@@ -507,6 +595,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _services_services__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../services/services */ "./js/services/services.js");
 /* harmony import */ var _changeState__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./changeState */ "./js/modules/changeState.js");
+/* harmony import */ var _searchElements__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./searchElements */ "./js/modules/searchElements.js");
+/* harmony import */ var _toggle__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./toggle */ "./js/modules/toggle.js");
+
+
 
 
 
@@ -546,8 +638,10 @@ function shopCards() {
                             <span class="icon-fav-shop_black hide"></span>
                         </button>
                     </div>
-                    <h3 class = "shop_title">${this.title}</h3>
-                    <div class = "shop_descr">${this.descr}</div>
+                    <div id="full_descr">
+                        <div id="title_descr" class = "shop_descr"><p>${this.title}</p></div>
+                        <div id="item_descr" class = "shop_descr"><p>${this.descr}</p></div>
+                    </div>
                     <div class="shop_price"><span>${this.price}</span> £</div>
                 </div>
             `;
@@ -557,6 +651,7 @@ function shopCards() {
                 
             }
             (0,_changeState__WEBPACK_IMPORTED_MODULE_1__["default"])('.icon-fav-shop', '.icon-fav-shop_black', 'hide');
+            (0,_searchElements__WEBPACK_IMPORTED_MODULE_2__["default"])('.input_search', '.shop_item', '.fail_block');
         }
     }
     try {
@@ -566,10 +661,12 @@ function shopCards() {
                 new shopCard(img, altimg, title, descr, price, '.shop .container').render();
             });
         });
+       
+        
     } catch (e) {
                
     }
-    
+    (0,_toggle__WEBPACK_IMPORTED_MODULE_3__["default"])('#inp_search', 'hide', '.search_button');
 
     fetch('http://localhost:3000/goods')
     .then(data => data.json())
@@ -766,8 +863,7 @@ __webpack_require__.r(__webpack_exports__);
 const toggle = (el, classname, btnToggle, inputValue) => {
     try {
         const btnTogg = document.getElementById(btnToggle),
-        element = document.querySelector(el),
-        dropdown = document.querySelectorAll('.dropdown_content');
+        element = document.querySelector(el);
         
         (0,_checkNumInputs__WEBPACK_IMPORTED_MODULE_0__["default"])(inputValue);
         
@@ -813,7 +909,18 @@ const toggle = (el, classname, btnToggle, inputValue) => {
     // });
 };
 
+function searchAnim (element, input, button) {
+    const el = document.querySelector(element),
+    inp = document.querySelector(input),
+    btn = document.querySelector(button);
+
+
+}
+
+
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (toggle);
+
 
 /***/ }),
 
@@ -936,6 +1043,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_shop__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/shop */ "./js/modules/shop.js");
 /* harmony import */ var _modules_scrollTo__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/scrollTo */ "./js/modules/scrollTo.js");
 /* harmony import */ var _modules_changeState__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/changeState */ "./js/modules/changeState.js");
+/* harmony import */ var _modules_searchElements__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/searchElements */ "./js/modules/searchElements.js");
+
 
 
 
@@ -969,9 +1078,13 @@ document.addEventListener('DOMContentLoaded', () => {
     (0,_modules_toggle__WEBPACK_IMPORTED_MODULE_4__["default"])('#myDropdown', 'hide', 'btn_toggle'); 
     (0,_modules_toggle__WEBPACK_IMPORTED_MODULE_4__["default"])('#inpSearch_toggle', 'hide', 'btn_search'); 
     (0,_modules_toggle__WEBPACK_IMPORTED_MODULE_4__["default"])('#myDropdown_acc', 'hide', 'btn_toggle_acc'); 
+    
     (0,_modules_calc__WEBPACK_IMPORTED_MODULE_0__["default"])();
     (0,_modules_changeState__WEBPACK_IMPORTED_MODULE_7__["default"])('.icFav', '.icFav_black', 'hide');
     (0,_modules_changeState__WEBPACK_IMPORTED_MODULE_7__["default"])('.icon-fav-shop', '.icon-fav-shop_black', 'hide');
+    
+    
+    
     
     
     

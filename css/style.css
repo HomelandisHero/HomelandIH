@@ -30,7 +30,13 @@ body {
     padding: 0px 30px 0px 30px;
 }
 .mainPaigeLink {
-    margin: 25px 0px 21px 0px;
+    margin: 16px 4px;
+    font-size: 30px;
+}
+.mainPaigeLink a {
+    text-decoration: none;
+    color: #171717;
+    letter-spacing: 2px;
 }
 .cIcon {
     width: 150px;
@@ -46,7 +52,7 @@ body {
 }
 .headCentreLinks {
     display: flex;
-    width: 270px;
+    width: 330px;
     justify-content: space-between;
     margin: 0px 15px 0px 15px;
     font-size: 18px;
@@ -290,7 +296,9 @@ body {
 /* ---------------------------------------CENTRE---------------------------------- */
 
 #head_container {
+    position: relative;
     margin-top: 88px;
+    justify-content: end;
 }
 .container {
     display: flex;
@@ -304,22 +312,30 @@ body {
     
     box-shadow: inset 0px 4px 10px rgba(0, 0, 0, 0.1);
 }   
-
+.leftCentre {
+    margin: 65px 0px 20px 40px;
+}
 .mainImg {
+    width: 90%;
     display: flex;
-    justify-content: end;
-    margin: 50px 0px;
-    
+    /* justify-content: end; */
+    /* margin: 15% auto; */
 }
 
 .mainImg img {
-    max-height: 500px;
+    width: 100%;
+}
+
+.textP {
+    display: block;
+    font-size: 19px;
+    width: 100%;
+    margin: 134px 0px 0px 0px;
 }
 
 .rightCentre {
     display: inline-block;
-    width: 50%;
-    padding: 60px 0px 0px 60px;
+    /* padding: 60px 0px 0px 60px; */
 }
 
 
@@ -339,22 +355,19 @@ h2 {
     text-shadow: -4px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
-.textP {
-    display: block;
-    font-size: 18px;
-    width: 100%;
-}
-
 .btnToShop {
-    max-width: 300px;
-    margin-top: 30px;
+    position: absolute;
+    left: 62%;
+    bottom: 25%;
+    width: 400px;
+    /* margin-top: 30px; */
     text-align: center;
 }
 .btnShop {
+    width: 100%;
     text-decoration: none;
 }
 .btnShop p {
-    width: 300px;
     color:#171717;
     font-size: 20px;
     padding: 15px 25px 15px 25px;
@@ -378,6 +391,10 @@ h2 {
     padding: 10px 10px 10px 15px;
     border: 1.5px solid black;
     border-radius: 50px;
+}
+
+#text2022 {
+    margin: 0px 64px 35px 0px;
 }
 
 .divider {
@@ -507,7 +524,7 @@ h2 {
     background-color: #fbfbfb;
     border: 0px solid #171717;
     border-radius: 4px;
-    max-height: 80vh;
+    /* max-height: 80vh; */
     overflow-y: auto;
 }
 
