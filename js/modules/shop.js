@@ -25,7 +25,7 @@ function shopCards() {
         render() {
             const element = document.createElement('div');
             if (this.classes.length === 0) {
-                this.element = 'shop_item';
+                this.element = "shop_item";
                 element.classList.add(this.element);
             } else {
                 this.classes.forEach(className => element.classList.add(className));

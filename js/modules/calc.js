@@ -1,3 +1,5 @@
+import checkNumInputs from "./checkNumInputs";
+
 function calc() {
 
     //-----------CALC---------------
@@ -6,9 +8,13 @@ function calc() {
           inputs = document.querySelectorAll('.calc_choose_item');
     let sex, chestGirth, waistSize, height;
 
+    checkNumInputs('#chestGirth');
+    checkNumInputs('#waistSize');
+    checkNumInputs('#height');
+    
     inputs.forEach(elem => {
         elem.onmouseover = function() {
-            elem.style.border = '1px solid #1717176a';
+            elem.style.border = '1qpx solid #1717176a';
         };
 
         elem.onmouseout = function() {
@@ -71,7 +77,7 @@ function calc() {
         
     }
     calcTotal();
-
+    
     function getStaticElements(selector, activeClass) {
         const elements = document.querySelectorAll(selector);
 
@@ -94,6 +100,8 @@ function calc() {
 
     }
     getStaticElements('#gender div', 'calc_choose-item_active');
+
+    
 
     function getDinamicInfo(selector) {
         

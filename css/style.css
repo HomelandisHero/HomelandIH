@@ -13,6 +13,28 @@ body {
 
 }
 
+.container {
+    max-width: 1200px;
+    margin: 0px auto;
+    padding: 0px 22px;
+} 
+@media (max-width: 1200px) {
+    .container {
+        max-width: 970px;
+    } 
+}
+@media (max-width: 992px) {
+    .container {
+        max-width: 750px;
+    } 
+}
+@media (max-width: 767px) {
+    .container {
+        max-width: none;
+        margin: 0 auto;
+    } 
+}
+
 .shiftInp {
     animation-name:  shiftInp;
     animation-duration: 0.3s;
@@ -55,7 +77,6 @@ body {
     height: auto;
     display: flex;
     align-items: center;
-    padding: 0px 30px 0px 30px;
 }
 .mainPaigeLink {
     margin: 16px 4px;
@@ -66,10 +87,10 @@ body {
     color: #171717;
     letter-spacing: 2px;
 }
-.cIcon {
+/* .cIcon {
     width: 150px;
     height: 18px;
-}
+} */
 
 .headCentre {
     display: flex;
@@ -80,7 +101,7 @@ body {
 }
 .headCentreLinks {
     display: flex;
-    width: 330px;
+    width: 34.3%;
     justify-content: space-between;
     margin: 0px 15px 0px 15px;
     font-size: 18px;
@@ -152,7 +173,7 @@ body {
 
 .centreButtons {
     display: flex;
-    width: 130px;
+    width: 12%;
     justify-content: space-between;
 }
 
@@ -323,23 +344,22 @@ body {
 
 /* ---------------------------------------CENTRE---------------------------------- */
 
+
 #head_container {
     position: relative;
     margin-top: 88px;
     justify-content: end;
 }
-.container {
+.centreBoxes {
     display: flex;
     background-color: #f7f7f7;
     flex-wrap: wrap;
-    padding: 0px 10px;
-    margin: 20px 40px;
-    position: relative;
-    justify-content: center;
     /* box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.147); */
     border-radius: 4px;
     box-shadow: inset 0px 4px 10px rgba(0, 0, 0, 0.1);
-}   
+}
+
+
 .leftCentre {
     margin: 65px 0px 20px 40px;
 }
@@ -387,7 +407,7 @@ h2 {
     position: absolute;
     left: 62%;
     bottom: 25%;
-    width: 400px;
+    width: 33%;
     /* margin-top: 30px; */
     text-align: center;
 }
@@ -735,8 +755,7 @@ h2 {
 
 .gallery_left {
     position: relative;
-    width: 45%;
-    margin-left: 40px;
+    width: 50%;
 }
 .name_discr_gallery h2 {
     margin-top: 100px;
@@ -749,7 +768,6 @@ h2 {
 
 .gallery_right {
     position: relative;
-    margin-left: 4%;
 }
 .gallery_box {
     margin: 30px auto;
@@ -812,12 +830,19 @@ input[type="number"]:focus {
     appearance: none;
     -moz-appearance: textfield;
 }
-/* ------------------------------------------ДЛЯ ТОГО ЩОБ УБРАТИ СТРІЛОЧКИ В ІНПУТАХ---------------------  */
+/* -------------------ДЛЯ ТОГО ЩОБ УБРАТИ СТРІЛОЧКИ В ІНПУТАХ---------------------  */
 .red_border {
     border: 1px solid #17171727;
 }
 .calc_of_size {
     margin-bottom: 50px;
+}
+.calcInfo {
+    display: flex;
+    width: 85%;
+    margin: 0 auto;
+    padding: 0 5px;
+    justify-content: space-between;
 }
 .calc_left {
     /* margin-top: 52px; */
@@ -861,8 +886,7 @@ input[type="number"]:focus {
 }
 
 .calc_right {
-    margin-left: 50px;
-    width: 470px;
+    width: 41%;
     text-align: center;
 }
 

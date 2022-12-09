@@ -33,6 +33,11 @@ input[type="number"]:focus {
     display: none;
 }
 
+.mainContainer {
+    max-width: 1200px;
+    margin: 0px auto;
+    padding: 0px 22px; 
+}
 /* ---------------------------------------SOC_MEDIA_PANEL---------------------------------- */
 
 .social_media_panel{
@@ -137,7 +142,7 @@ input[type="number"]:focus {
     padding: 25px 0px 40px 0px;
 }
 
-.shop h2 {
+.mainContainer h2 {
     color: #232323;
     text-align: center;
     font-size: 40px;
@@ -147,10 +152,7 @@ input[type="number"]:focus {
 .shopField {
     position: relative;
     display: flex;
-    margin: 30px 0px 0px 0px;
-    padding: 25px 20px;
-    width: 100%;
-    justify-content: start;
+    padding: 25px 0px;
     background-color: #dddddd24;
     box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.2);
 }
@@ -175,17 +177,16 @@ input[type="number"]:focus {
 /* --------------------------------------- SHOP LEFT SIDE ---------------------------------- */
 .shop_left {
     z-index: 2;
+    width: 18%;
 }
 
 .filters_page {
     position: sticky;
     top: 0px;
-    width: 200px;
+    width: 100%;
     /* height: 100%; */
-    margin: 0px 0px 0px 20px;
-    padding-top: 5px;
-
-
+    padding-left: 10px;
+    padding-top: 5px
 }
 .each_filter{
     width: 100%;
@@ -246,15 +247,16 @@ input[type="number"]:focus {
 
 /* --------------------------------------- SHOP RIGHT SIDE ---------------------------------- */
 
-.shop_right {
+.shopRight {
     z-index: 2;
+    width: 80%;
+    padding: 0px 20px;
 }
 .container {
     display: flex;
     background-color: #f7f7f7;
     flex-wrap: wrap;
     padding: 0px 10px;
-    margin: 0px 20px;
     position: relative;
     /* justify-content: center; */
     /* box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.147); */
@@ -265,8 +267,7 @@ input[type="number"]:focus {
 
 .shop_item {
     position: relative;
-    width: calc( 33% - 7.5px);
-    min-width: 200px;
+    width: calc( 33.3% - 10px);
     font-size: 100%;
     /* font-weight: 600; */
     letter-spacing: 0.5px;
@@ -275,6 +276,17 @@ input[type="number"]:focus {
     margin: 5px 5px 5px 5px;
     border-radius: 4px;
 }
+@media (max-width: 992px) {
+    .shop_item {
+        width: calc( 50% - 10px);
+    } 
+}
+@media (max-width: 767px) {
+    .shop_item {
+        width: calc( 100% - 10px);
+    } 
+}
+
 .shop_item:hover {
     transition-duration: 0.35s;
     /* transform: scale(0.995); */
@@ -291,7 +303,7 @@ input[type="number"]:focus {
 
 .fav-shop {
     width: 11%;
-    min-width: 20px;
+    /* min-width: 20px; */
     position: absolute;
     left: 87%;
     bottom: 89%;
@@ -336,6 +348,7 @@ input[type="number"]:focus {
 }
 
 .shop_price {
+    width: 100%;
     font-size: 21px;
     padding: 20px 0px 20px 0px;
     font-weight: 300;
